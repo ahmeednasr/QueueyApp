@@ -13,6 +13,8 @@ class MyApp extends StatelessWidget {
       title: 'Queuey',
       theme: ThemeData(
         primaryColor: Color(0xff329D9C),
+        accentColor: Color(0xff40A3A3),
+        fontFamily: 'OpenSans',
       ),
       home: SplashScreen(),
     );
