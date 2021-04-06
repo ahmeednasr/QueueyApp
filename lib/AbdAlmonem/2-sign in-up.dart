@@ -12,4 +12,4 @@ class _SiginInUpState extends State<SiginInUp> {
       color: Colors.red,
     );
   }
-}
+} //_SiginInUpStaterrrrrrrrrrr
