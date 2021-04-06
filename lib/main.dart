@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xff40A3A3),
         fontFamily: 'OpenSans',
       ),
-      home: BookQNow(), //SplashScreen(),
+      home: BookQNow(), //SplashScreen(0),
     );
   }
 }
