@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/1-SplashScreen.dart';
 import 'package:queuey/Nasr/11-book%20Q%20now.dart';
 
 void main() {
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xff40A3A3),
         fontFamily: 'OpenSans',
       ),
-      home: BookQNow(), //SplashScreen(0),
+      home: BookQNow(), //SplashScreen(),
     );
   }
 }
