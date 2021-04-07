@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:queuey/Algaraiehy/12-select%20destination.dart';
+import 'package:queuey/MyAppBar.dart';
 
 class BookQNow extends StatefulWidget {
   @override
@@ -18,41 +20,21 @@ class _BookQNowState extends State<BookQNow> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        title: Align(
-          alignment: Alignment.topRight,
-          child: Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(80),
-            ),
-            child: Image(
-                image: AssetImage(
-                    'assets/images/Screens/11-book Q now/profile.png')),
-          ),
-        ),
-        elevation: 0,
+      appBar: MyAppBar(
+        context: context,
       ),
       body: ListView(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: EdgeInsets.all(10),
-                height: 130,
-                width: 130,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(80),
-                    color: Color.fromRGBO(50, 157, 156, .25)),
-                child:
-                    Image(image: AssetImage('assets/images/Queue-amico.png')),
-              ),
-            ],
+          Center(
+            child: Container(
+              padding: EdgeInsets.all(10),
+              height: 130,
+              width: 130,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(80),
+                  color: Color.fromRGBO(50, 157, 156, .25)),
+              child: Image(image: AssetImage('assets/images/Queue-amico.png')),
+            ),
           ),
           Center(
             child: Text(
@@ -68,14 +50,20 @@ class _BookQNowState extends State<BookQNow> {
             height: 20,
           ),
           Container(
-            height: 140,
+            height: 160,
             width: MediaQuery.of(context).size.width,
-            child: ListView.builder(
-                itemCount: _images.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Image(image: AssetImage(_images[index]));
-                }),
+            child: Swiper(
+              autoplay: true,
+              duration: 350,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context, int index) {
+                return Image(
+                  image: AssetImage(_images[index]),
+                );
+              },
+              itemCount: _images.length,
+              layout: SwiperLayout.DEFAULT,
+            ),
           ),
           SizedBox(
             height: 40,

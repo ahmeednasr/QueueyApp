@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  flutter_swiper: ^1.1.6
   flutter:
     sdk: flutter
 
@@ -51,7 +52,15 @@ flutter:
      - assets/images/Screens/11-book Q now/index2.png
      - assets/images/Screens/11-book Q now/index3.png
      - assets/images/Screens/11-book Q now/index4.png
-     - assets/images/Screens/11-book Q now/profile.png
+     - assets/images/Screens/13-Colleges/1.png
+     - assets/images/Screens/13-Colleges/2.png
+     - assets/images/Screens/13-Colleges/3.png
+     - assets/images/Screens/13-Colleges/4.png
+     - assets/images/Screens/13-Colleges/5.png
+     - assets/images/Screens/13-Colleges/6.png
+     - assets/images/Screens/13-Colleges/7.png
+     - assets/images/MyAppBar/profile.png
+     - assets/images/MyAppBar/list.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
