@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/Nasr/11-book%20Q%20now.dart';
-
+// import 'package:queuey/Nasr/11-book%20Q%20now.dart';
+import 'package:queuey/Algaraiehy/5-congrats.dart';
 void main() {
   runApp(MyApp());
 }
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xff40A3A3),
         fontFamily: 'OpenSans',
       ),
-      home: BookQNow(), //SplashScreen(),
+      home: Congrats(),
     );
   }
 }

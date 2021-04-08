@@ -61,6 +61,8 @@ flutter:
      - assets/images/Screens/13-Colleges/7.png
      - assets/images/MyAppBar/profile.png
      - assets/images/MyAppBar/list.png
+     - assets/images/Screens/5-congrats/accept_img.png
+     - assets/images/Screens/5-congrats/ok logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
