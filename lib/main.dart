@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:queuey/Nasr/11-book%20Q%20now.dart';
-import 'package:queuey/Nasr/13-Colleges.dart';
 
 void main() {
   runApp(MyApp());

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/MyAppBar.dart';
+import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class Colleges extends StatelessWidget {
   @override
