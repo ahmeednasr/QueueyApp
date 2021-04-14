@@ -38,7 +38,7 @@ class _BookQNowState extends State<BookQNow> {
           ),
           Center(
             child: Text(
-              'QueueY',
+              'Q',
               style: TextStyle(
                 color: Theme.of(context).primaryColor,
                 fontStyle: FontStyle.italic,
@@ -109,7 +109,7 @@ class _BookQNowState extends State<BookQNow> {
                 ),
               ),
               Text(
-                'QueueY',
+                'Q',
                 style: TextStyle(
                     fontSize: 17,
                     color: Theme.of(context).primaryColor,
@@ -170,6 +170,33 @@ class _BookQNowState extends State<BookQNow> {
             height: 30,
           )
         ],
+      ),
+      bottomNavigationBar: Container(
+        height: 65,
+        color: Color.fromRGBO(50, 157, 156, .84),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image(
+              image: AssetImage(
+                  'assets/images/Screens/11-book Q now/facebook.png'),
+            ),
+            SizedBox(
+              width: 15,
+            ),
+            Image(
+              image: AssetImage(
+                  'assets/images/Screens/11-book Q now/instagram.png'),
+            ),
+            SizedBox(
+              width: 15,
+            ),
+            Image(
+              image:
+                  AssetImage('assets/images/Screens/11-book Q now/Twitter.png'),
+            )
+          ],
+        ),
       ),
     );
   }
