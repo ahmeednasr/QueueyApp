@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/Nasr/11-book%20Q%20now.dart';
+import 'Nasr/11-book Q now.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Queuey',
+      title: 'Q',
       theme: ThemeData(
         primaryColor: Color(0xff329D9C),
         accentColor: Color(0xff40A3A3),

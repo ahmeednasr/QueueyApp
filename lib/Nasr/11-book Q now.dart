@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:queuey/Algaraiehy/12-select%20destination.dart';
-import 'package:queuey/Custom_Widget/MyAppBar.dart';
+import 'package:Q/Custom_Widget/MyAppBar.dart';
+import 'package:Q/Algaraiehy/12-select%20destination.dart';
 
 class BookQNow extends StatefulWidget {
   @override
