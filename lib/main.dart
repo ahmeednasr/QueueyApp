@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Algaraiehy/5-congrats.dart';
+import 'Nasr/11-book Q now.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xff40A3A3),
         fontFamily: 'OpenSans',
       ),
-      home: Congrats(),
+      home: BookQNow(),
     );
   }
 }
