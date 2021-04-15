@@ -130,42 +130,26 @@ class _BookQNowState extends State<BookQNow> {
           SizedBox(
             height: 50,
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: InkWell(
-              onTap: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => SelectDestination()));
-              },
-              child: Container(
-                height: 60,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Theme.of(context).primaryColor,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Center(
-                  child: Text(
-                    'Book your Queue Now!',
-                    style: TextStyle(
-                        fontSize: 25,
-                        //fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                ),
+          Center(
+              child: RaisedButton(
+            onPressed: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => SelectDestination()));
+            },
+            color: Theme.of(context).primaryColor,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: Text(
+                'Book your Queue Now!',
+                style: TextStyle(
+                    fontSize: 25,
+                    //fontWeight: FontWeight.bold,
+                    color: Colors.white),
               ),
             ),
-          ),
+          )),
           SizedBox(
             height: 30,
           )

@@ -44,22 +44,20 @@ class _CongratsState extends State<Congrats> {
             ),
           ), //ok_img container
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                "Congrats! \nYou'll have an account now!",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  height: 1.5,
-                  fontSize: 25.0,
-                  color: Color(0xff40A3A3),
-                ), //TextStyle
-              ), //text
-            ],
+          Text(
+            "Congrats! \nYou'll have an account now!",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              height: 1.5,
+              fontSize: 25.0,
+              color: Color(0xff40A3A3),
+            ), //TextStyle
           ), //row
+          SizedBox(
+            height: 10,
+          )
         ],
       ),
     ); //Scaffold
   }
-}// Congrats class
+} // Congrats class

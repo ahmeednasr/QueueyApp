@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'Nasr/11-book Q now.dart';
+import 'package:queuey/Nasr/13-Colleges.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xff40A3A3),
         fontFamily: 'OpenSans',
       ),
-      home: BookQNow(),
+      home: Colleges(),
     );
   }
 }

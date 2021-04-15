@@ -4,7 +4,8 @@ class MyAppBar extends AppBar {
   MyAppBar({Key key, Widget title, BuildContext context})
       : super(
           key: key,
-          title: Row(children: [
+          title:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             InkWell(
               /*onTap: () {
                 Navigator.pushReplacement(
@@ -22,7 +23,6 @@ class MyAppBar extends AppBar {
                 ),
               ),
             ),
-            Expanded(child: SizedBox()),
             InkWell(
               /*onTap: () {
                 Navigator.pushReplacement(
