@@ -26,17 +26,6 @@ class _BookQNowState extends State<BookQNow> {
       body: ListView(
         children: [
           Center(
-            child: Container(
-              padding: EdgeInsets.all(10),
-              height: 130,
-              width: 130,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(80),
-                  color: Color.fromRGBO(50, 157, 156, .25)),
-              child: Image(image: AssetImage('assets/images/Queue-amico.png')),
-            ),
-          ),
-          Center(
             child: Text(
               'Q',
               style: TextStyle(

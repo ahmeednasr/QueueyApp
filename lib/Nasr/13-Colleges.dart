@@ -30,10 +30,12 @@ class _CollegesState extends State<Colleges> {
       appBar: MyAppBar(
         context: context,
       ),
+      bottomNavigationBar:
+          Container(height: 70, color: Color.fromRGBO(50, 157, 156, .25)),
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         child: Container(
-            height: MediaQuery.of(context).size.height,
+            height: MediaQuery.of(context).size.height * .9,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 color: Color.fromRGBO(50, 157, 156, .28),
