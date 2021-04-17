@@ -6,6 +6,8 @@ class LoginView extends StatefulWidget {
 }
 
 bool _issecured = true;
+GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+String _email, _password;
 
 class _LoginViewState extends State<LoginView> {
   Widget textField({
@@ -19,9 +21,9 @@ class _LoginViewState extends State<LoginView> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: TextFormField(
-        //validator: validator,
+        validator: validator,
         obscureText: secure,
-        //onSaved: onsave,
+        onSaved: onsave,
         decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
@@ -38,9 +40,36 @@ class _LoginViewState extends State<LoginView> {
     );
   }
 
+  _socialIcon({String image}) {
+    return Container(
+      height: 40,
+      width: 40,
+      decoration: BoxDecoration(
+          border: Border.all(
+            color: Theme.of(context).primaryColor,
+          ),
+          borderRadius: BorderRadius.circular(50),
+          image: DecorationImage(
+            image: AssetImage(
+              image,
+            ),
+          )),
+    );
+  }
+
+  _submitForm() {
+    if (!_formkey.currentState.validate()) {
+      return;
+    } else {
+      _formkey.currentState.save();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          elevation: 0, automaticallyImplyLeading: false, toolbarHeight: 0),
       body: ListView(
         children: [
           SizedBox(
@@ -59,7 +88,7 @@ class _LoginViewState extends State<LoginView> {
                     Image(image: AssetImage('assets/images/Queue-amico.png')),
               ),
               Text(
-                'Q',
+                'QueueY',
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,
                   fontStyle: FontStyle.italic,
@@ -71,35 +100,70 @@ class _LoginViewState extends State<LoginView> {
           SizedBox(
             height: 20,
           ),
-          textField(
-              hinttext: 'Enter your full name',
-              prefixIcon: Icon(
-                Icons.person,
-                color: Theme.of(context).primaryColor,
-              ),
-              secure: false),
-          SizedBox(
-            height: 20,
+          Form(
+            key: _formkey,
+            child: Column(
+              children: [
+                textField(
+                    validator: (value) {
+                      if (value.toString().isEmpty ||
+                          value.toString().length < 10) {
+                        return "email required";
+                      } else {
+                        return null;
+                      }
+                    },
+                    onsave: (value) {
+                      setState(() {
+                        _email = value;
+                      });
+                    },
+                    hinttext: 'Email',
+                    prefixIcon: Icon(
+                      Icons.person,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    secure: false),
+                SizedBox(
+                  height: 20,
+                ),
+                textField(
+                    validator: (value) {
+                      if (value.toString().isEmpty ||
+                          value.toString().length < 10) {
+                        return "password required and more than 10 characters";
+                      } else {
+                        return null;
+                      }
+                    },
+                    onsave: (value) {
+                      setState(() {
+                        _password = value;
+                      });
+                    },
+                    hinttext: 'Password',
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                          _issecured ? Icons.visibility_off : Icons.visibility),
+                      onPressed: () {
+                        setState(() {
+                          _issecured = !_issecured;
+                        });
+                      },
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    secure: _issecured),
+              ],
+            ),
           ),
-          textField(
-              hinttext: 'Password',
-              prefixIcon: Icon(
-                Icons.lock,
-                color: Theme.of(context).primaryColor,
-              ),
-              suffixIcon: IconButton(
-                icon:
-                    Icon(_issecured ? Icons.visibility_off : Icons.visibility),
-                onPressed: () {
-                  setState(() {
-                    _issecured = !_issecured;
-                  });
-                },
-                color: Theme.of(context).primaryColor,
-              ),
-              secure: _issecured),
           Padding(
-            padding: EdgeInsets.only(left: 40),
+            padding: EdgeInsets.only(
+              left: 40,
+            ),
             child: InkWell(
               onTap: () {
                 /*Navigator.push(
@@ -107,13 +171,20 @@ class _LoginViewState extends State<LoginView> {
               },
               child: Text(
                 'Forget password?',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.grey[700]),
               ),
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
           Center(
               child: RaisedButton(
-            onPressed: () {},
+            onPressed: () {
+              _submitForm();
+              print("$_email $_password");
+            },
             color: Theme.of(context).primaryColor,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
@@ -121,8 +192,52 @@ class _LoginViewState extends State<LoginView> {
               'sign in',
               style: TextStyle(color: Colors.white),
             ),
-          ))
+          )),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _socialIcon(image: 'assets/images/Screens/8-signin/face.png'),
+              SizedBox(
+                width: 10,
+              ),
+              _socialIcon(image: 'assets/images/Screens/8-signin/google.png'),
+              SizedBox(
+                width: 10,
+              ),
+              _socialIcon(image: 'assets/images/Screens/8-signin/twitter.png')
+            ],
+          )
         ],
+      ),
+      bottomNavigationBar: Container(
+        height: 50,
+        child: Center(
+            child: Column(
+          children: [
+            Text("Don't have account?"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("click here "),
+                InkWell(
+                  onTap: () {
+                    /* Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Screen()));*/
+                  },
+                  child: Text(
+                    "(create an account)",
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        )),
       ),
     );
   }
