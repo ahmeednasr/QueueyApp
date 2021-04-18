@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:queuey/Algaraiehy/12-select%20destination.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class BookQNow extends StatefulWidget {
@@ -128,8 +127,8 @@ class _BookQNowState extends State<BookQNow> {
                   borderRadius: BorderRadius.circular(10),
                 )),
             onPressed: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => SelectDestination()));
+              /* Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => SelectDestination()));*/
             },
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),

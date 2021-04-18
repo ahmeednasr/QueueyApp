@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
+import '19-select department.dart';
+
 class Colleges extends StatefulWidget {
   @override
   _CollegesState createState() => _CollegesState();
@@ -47,10 +49,10 @@ class _CollegesState extends State<Colleges> {
                     _nimoContainer(
                         image: 'assets/images/Screens/13-Colleges/2.png',
                         ontap: () {
-                          /*  Navigator.push(
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SelectDestination()));*/
+                                  builder: (context) => SelectDepartment()));
                         }),
                     _nimoContainer(
                         image: 'assets/images/Screens/13-Colleges/3.png'),
@@ -94,44 +96,7 @@ class _CollegesState extends State<Colleges> {
                   ],
                 ),
               ],
-            )
-
-            /*Stack(
-              children: [
-                AnimatedContainer(
-                  duration: Duration(milliseconds: 500),
-                  padding: EdgeInsets.all(5),
-                  height: _height,
-                  width: _width,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.red,
-                  ),
-                  child:
-                      Image(image: AssetImage('assets/images/Queue-amico.png')),
-                ),
-                Center(
-                    child: Container(
-                        height: 80,
-                        width: 80,
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(50),
-                        )
-
-                         FlatButton(
-                      color: Colors.red,
-                      onPressed: () {
-                        setState(() {
-                          _height = 100;
-                          _width = 100;
-                        });
-                      },
-                      child: Text('data')),
-                        ))
-              ],
-            )*/
-            ),
+            )),
       ),
     );
   }
