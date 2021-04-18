@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:queuey/Nasr/Login/Login%20View.dart';
+import 'package:queuey/Nasr/13-Colleges.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xff40A3A3),
         fontFamily: 'OpenSans',
       ),
-      home: LoginView(),
+      home: Colleges(),
     );
   }
 }

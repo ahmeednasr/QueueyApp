@@ -27,7 +27,7 @@ class _BookQNowState extends State<BookQNow> {
         children: [
           Center(
             child: Text(
-              'Q',
+              'QueueY',
               style: TextStyle(
                 color: Theme.of(context).primaryColor,
                 fontStyle: FontStyle.italic,
@@ -98,7 +98,7 @@ class _BookQNowState extends State<BookQNow> {
                 ),
               ),
               Text(
-                'Q',
+                'QueueY',
                 style: TextStyle(
                     fontSize: 17,
                     color: Theme.of(context).primaryColor,
@@ -120,14 +120,17 @@ class _BookQNowState extends State<BookQNow> {
             height: 50,
           ),
           Center(
-              child: RaisedButton(
+              child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                primary: Theme.of(context).primaryColor, // background
+                onPrimary: Colors.black, // foreground
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                )),
             onPressed: () {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => SelectDestination()));
             },
-            color: Theme.of(context).primaryColor,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Text(

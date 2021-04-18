@@ -108,7 +108,7 @@ class _LoginViewState extends State<LoginView> {
                     validator: (value) {
                       if (value.toString().isEmpty ||
                           value.toString().length < 10) {
-                        return "email required";
+                        return "email is required";
                       } else {
                         return null;
                       }
@@ -131,7 +131,7 @@ class _LoginViewState extends State<LoginView> {
                     validator: (value) {
                       if (value.toString().isEmpty ||
                           value.toString().length < 10) {
-                        return "password required and more than 10 characters";
+                        return "password is required and more than 10 characters";
                       } else {
                         return null;
                       }
@@ -180,14 +180,15 @@ class _LoginViewState extends State<LoginView> {
             height: 20,
           ),
           Center(
-              child: RaisedButton(
+              child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Theme.of(context).primaryColor, // background
+              onPrimary: Colors.black, // foreground
+            ),
             onPressed: () {
               _submitForm();
               print("$_email $_password");
             },
-            color: Theme.of(context).primaryColor,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
             child: Text(
               'sign in',
               style: TextStyle(color: Colors.white),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/Algaraiehy/12-select%20destination.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class Colleges extends StatefulWidget {
@@ -30,8 +29,6 @@ class _CollegesState extends State<Colleges> {
       appBar: MyAppBar(
         context: context,
       ),
-      bottomNavigationBar:
-          Container(height: 70, color: Color.fromRGBO(50, 157, 156, .25)),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         child: Container(
@@ -49,10 +46,10 @@ class _CollegesState extends State<Colleges> {
                     _nimoContainer(
                         image: 'assets/images/Screens/13-Colleges/2.png',
                         ontap: () {
-                          Navigator.push(
+                          /*  Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SelectDestination()));
+                                  builder: (context) => SelectDestination()));*/
                         }),
                     _nimoContainer(
                         image: 'assets/images/Screens/13-Colleges/3.png'),
