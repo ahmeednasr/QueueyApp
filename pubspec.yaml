@@ -75,6 +75,11 @@ flutter:
      - assets/images/Screens/8-signin/face.png
      - assets/images/Screens/8-signin/google.png
      - assets/images/Screens/8-signin/twitter.png
+     - assets/images/Screens/19-select department/IT.png
+     - assets/images/Screens/19-select department/CS.png
+     - assets/images/Screens/19-select department/IS.png
+     - assets/images/Screens/19-select department/SW.png
+     - assets/images/Screens/19-select department/Bio.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

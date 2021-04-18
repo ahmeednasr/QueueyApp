@@ -26,6 +26,7 @@ class _CollegesState extends State<Colleges> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: MyAppBar(
         context: context,
       ),
