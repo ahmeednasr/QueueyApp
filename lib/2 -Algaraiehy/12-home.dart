@@ -17,13 +17,14 @@ class HomeScreen extends StatelessWidget {
             name,
             style: TextStyle(
               color: Color(0xff3A4D4D),
-              fontSize: 18.0,
+              fontSize: 17.0,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
       ],
     );
+
   }
 
   @override
@@ -44,7 +45,7 @@ class HomeScreen extends StatelessWidget {
               'Select your destination',
               style: TextStyle(
                 color: Color(0xff3A4D4D),
-                fontSize: 25.0,
+                fontSize: 24.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
