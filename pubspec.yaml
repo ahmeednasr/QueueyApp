@@ -88,6 +88,11 @@ flutter:
      - assets/images/Screens/31-Settings/notification.png
      - assets/images/Screens/31-Settings/privacy.png
      - assets/images/Screens/31-Settings/logout.png
+     - assets/images/Screens/26-more option/1-About QueueY.png
+     - assets/images/Screens/26-more option/2-Report a Problem.png
+     - assets/images/Screens/26-more option/3-Rate QueueY.png
+     - assets/images/Screens/26-more option/4-Invite your friends.png
+     - assets/images/Screens/26-more option/5-Contact us.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

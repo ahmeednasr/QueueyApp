@@ -4,7 +4,7 @@ class MoreOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: Colors.lightGreenAccent,
       child: Center(
         child: Text(
           'More optiopn',
