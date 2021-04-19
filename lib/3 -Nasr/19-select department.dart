@@ -22,7 +22,7 @@ class _SelectDepartmentState extends State<SelectDepartment> {
     },
     {
       'department': 'Software Engineering',
-      'image': 'assets/images/Screens/19-select department/SW.png'
+      'image': 'assets/images/Screens/19-select department/SW.png',
     },
     {
       'department': 'Bioinformatics',
@@ -66,9 +66,12 @@ class _SelectDepartmentState extends State<SelectDepartment> {
                             color: Colors.grey[300]),
                         child: Row(
                           children: [
-                            Image(
-                              image:
-                                  AssetImage(_departmentList[index]['image']),
+                            Padding(
+                              padding: EdgeInsets.all(5),
+                              child: Image(
+                                image:
+                                    AssetImage(_departmentList[index]['image']),
+                              ),
                             ),
                             SizedBox(
                               width: 10,

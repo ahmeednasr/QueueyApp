@@ -81,6 +81,11 @@ flutter:
      - assets/images/Screens/19-select department/IS.png
      - assets/images/Screens/19-select department/SW.png
      - assets/images/Screens/19-select department/Bio.png
+     - assets/images/Screens/31-Settings/code.png
+     - assets/images/Screens/31-Settings/help.png
+     - assets/images/Screens/31-Settings/notification.png
+     - assets/images/Screens/31-Settings/privacy.png
+     - assets/images/Screens/31-Settings/logout.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

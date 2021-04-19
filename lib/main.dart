@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'Custom_Widget/NavigationBar.dart';
+import 'package:queuey/Custom_Widget/NavigationBar.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

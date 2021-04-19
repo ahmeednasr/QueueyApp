@@ -39,6 +39,8 @@ class _RateQueueyState extends State<RateQueuey> {
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.circular(15)),
                   child: RatingBar.builder(
+                    unratedColor: Colors.grey[400],
+                    glowColor: Colors.white,
                     initialRating: 3,
                     minRating: 1,
                     direction: Axis.horizontal,
@@ -89,7 +91,9 @@ class _RateQueueyState extends State<RateQueuey> {
                     primary: Color(0xffECBC27), // background
                     onPrimary: Colors.black, // foreground
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   child: Text(
                     'Done',
                     style: TextStyle(
