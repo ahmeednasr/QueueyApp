@@ -127,8 +127,7 @@ class _BookQNowState extends State<BookQNow> {
                   borderRadius: BorderRadius.circular(10),
                 )),
             onPressed: () {
-              /* Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => SelectDestination()));*/
+              //screeeen
             },
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
