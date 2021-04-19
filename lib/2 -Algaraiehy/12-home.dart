@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 5,
+              height: 10,
             ),
             TextField(
               controller: null,
@@ -95,7 +95,7 @@ class HomeScreen extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                width: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 // color: Color(0xffcccccc),
                 child: GridView.count(
