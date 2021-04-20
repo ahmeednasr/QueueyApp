@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:queuey/3%20-Nasr/31-settings.dart';
 
 class MyAppBar extends AppBar {
   MyAppBar({Key key, Widget title, BuildContext context})
@@ -20,9 +21,15 @@ class MyAppBar extends AppBar {
                     height: 35,
                     width: 35,
                     padding: EdgeInsets.symmetric(vertical: 5, horizontal: 3),
-                    child: Image(
-                      image: AssetImage('assets/images/MyAppBar/list.png'),
-                      fit: BoxFit.contain,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Setting()));
+                      },
+                      child: Image(
+                        image: AssetImage('assets/images/MyAppBar/list.png'),
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                 ),

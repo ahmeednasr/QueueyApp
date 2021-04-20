@@ -26,11 +26,11 @@ class _LoginViewState extends State<LoginView> {
         onSaved: onsave,
         decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(color: Colors.black, width: 1),
             ),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(10),
             ),
             contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
             hintText: hinttext,
@@ -68,8 +68,6 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          elevation: 0, automaticallyImplyLeading: false, toolbarHeight: 0),
       body: ListView(
         children: [
           SizedBox(
@@ -79,13 +77,16 @@ class _LoginViewState extends State<LoginView> {
             children: [
               Container(
                 padding: EdgeInsets.all(10),
-                height: 130,
-                width: 130,
+                height: 140,
+                width: 140,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(80),
                     color: Color.fromRGBO(50, 157, 156, .25)),
                 child:
                     Image(image: AssetImage('assets/images/Queue-amico.png')),
+              ),
+              SizedBox(
+                height: 10,
               ),
               Text(
                 'QueueY',
@@ -98,7 +99,7 @@ class _LoginViewState extends State<LoginView> {
             ],
           ),
           SizedBox(
-            height: 20,
+            height: 30,
           ),
           Form(
             key: _formkey,
@@ -182,6 +183,9 @@ class _LoginViewState extends State<LoginView> {
           Center(
               child: ElevatedButton(
             style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(7),
+              ),
               primary: Theme.of(context).primaryColor, // background
               onPrimary: Colors.black, // foreground
             ),
@@ -191,49 +195,56 @@ class _LoginViewState extends State<LoginView> {
             },
             child: Text(
               'sign in',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.white, fontSize: 18),
             ),
           )),
           SizedBox(
-            height: 20,
+            height: 40,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _socialIcon(image: 'assets/images/Screens/8-signin/face.png'),
-              SizedBox(
-                width: 10,
-              ),
-              _socialIcon(image: 'assets/images/Screens/8-signin/google.png'),
-              SizedBox(
-                width: 10,
-              ),
-              _socialIcon(image: 'assets/images/Screens/8-signin/twitter.png')
-            ],
-          )
         ],
       ),
       bottomNavigationBar: Container(
-        height: 50,
+        padding: EdgeInsets.symmetric(vertical: 5),
+        height: 120,
         child: Center(
             child: Column(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Don't have account?"),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("click here "),
-                InkWell(
-                  onTap: () {
-                    /* Navigator.push(context,
+                _socialIcon(image: 'assets/images/Screens/8-signin/face.png'),
+                SizedBox(
+                  width: 10,
+                ),
+                _socialIcon(image: 'assets/images/Screens/8-signin/google.png'),
+                SizedBox(
+                  width: 10,
+                ),
+                _socialIcon(image: 'assets/images/Screens/8-signin/twitter.png')
+              ],
+            ),
+            Expanded(child: SizedBox()),
+            Column(
+              children: [
+                Text("Don't have account?"),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("click here "),
+                    InkWell(
+                      onTap: () {
+                        /* Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Screen()));*/
-                  },
-                  child: Text(
-                    "(create an account)",
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColor,
+                      },
+                      child: Text(
+                        "(create an account)",
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),

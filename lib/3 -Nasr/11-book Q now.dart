@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
+import 'package:queuey/Custom_Widget/NavigationBar.dart';
 
 class BookQNow extends StatefulWidget {
   @override
@@ -127,7 +128,8 @@ class _BookQNowState extends State<BookQNow> {
                   borderRadius: BorderRadius.circular(10),
                 )),
             onPressed: () {
-              //screeeen
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => NavBar()));
             },
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),

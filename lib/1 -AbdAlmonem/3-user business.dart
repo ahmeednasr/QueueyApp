@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/3%20-Nasr/Login/Login%20View.dart';
 
-import '3-user business.dart';
-
-class SiginInUp extends StatelessWidget {
+class UserBusiness extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             SizedBox(
-              height: 5,
+              height: 40,
             ),
             Text(
               "QueueY",
@@ -21,7 +17,7 @@ class SiginInUp extends StatelessWidget {
                   fontSize: 48, color: Theme.of(context).primaryColor),
             ),
             Container(
-              padding: EdgeInsets.all(9),
+              padding: EdgeInsets.all(7),
               height: 150,
               width: 150,
               decoration: BoxDecoration(
@@ -29,38 +25,23 @@ class SiginInUp extends StatelessWidget {
                   color: Color.fromRGBO(50, 157, 156, .25)),
               child: Image(image: AssetImage('assets/images/Queue-amico.png')),
             ),
+            Text(
+              "Get in touch with QueueY",
+              style: TextStyle(
+                  fontSize: 24,
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              "Sign Up as:",
+              style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.grey[800],
+                  fontWeight: FontWeight.bold),
+            ),
             Center(
                 child: SizedBox(
-              width: 140,
-              height: 55,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  side: BorderSide(
-                    width: 1.5,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  primary: Colors.white, // background
-                  onPrimary: Colors.black, // foreground
-                ),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginView()));
-                },
-                child: Text(
-                  'Sign in',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                      color: Theme.of(context).primaryColor),
-                ),
-              ),
-            )),
-            Center(
-                child: SizedBox(
-              width: 140,
+              width: 150,
               height: 55,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -72,11 +53,35 @@ class SiginInUp extends StatelessWidget {
                   onPrimary: Colors.black, // foreground
                 ),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => UserBusiness()));
+                  //User registration screennnnnnnnnnnnnnnnnn
                 },
                 child: Text(
-                  'Sign Up',
+                  'User',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      color: Colors.white),
+                ),
+              ),
+            )),
+            Center(
+                child: SizedBox(
+              width: 150,
+              height: 55,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+
+                  primary: Theme.of(context).primaryColor, // background
+                  onPrimary: Colors.black, // foreground
+                ),
+                onPressed: () {
+                  //Business registration screennnnnnnnnnnnnnnnnn
+                },
+                child: Text(
+                  'Business',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
@@ -85,7 +90,7 @@ class SiginInUp extends StatelessWidget {
               ),
             )),
             SizedBox(
-              height: 10,
+              height: 1,
             )
           ],
         ),
