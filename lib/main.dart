@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '2 -Algaraiehy/14-select service.dart';
+import '2 -Algaraiehy/30-contact us.dart';
+
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +23,8 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xff40A3A3),
         fontFamily: 'OpenSans',
       ),
-      home: SelectService(),
+      home: ContactUs(),
+      
     );
   }
 }
