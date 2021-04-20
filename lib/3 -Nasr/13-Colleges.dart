@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:queuey/2%20-Algaraiehy/14-select%20service.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
-import '19-select department.dart';
-
 class Colleges extends StatefulWidget {
   @override
   _CollegesState createState() => _CollegesState();
@@ -56,14 +54,14 @@ class _CollegesState extends State<Colleges> {
                                   builder: (context) => SelectService()));
                         }),
                     _nimoContainer(
-                        image: 'assets/images/Screens/13-Colleges/3.png'),
+                        image: 'assets/images/Screens/13-Colleges/5.png'),
                   ],
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     _nimoContainer(
-                        image: 'assets/images/Screens/13-Colleges/4.png'),
+                        image: 'assets/images/Screens/13-Colleges/3.png'),
                     InkWell(
                       onTap: () {
                         setState(() {
@@ -84,16 +82,16 @@ class _CollegesState extends State<Colleges> {
                       ),
                     ),
                     _nimoContainer(
-                        image: 'assets/images/Screens/13-Colleges/5.png'),
+                        image: 'assets/images/Screens/13-Colleges/7.png'),
                   ],
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     _nimoContainer(
-                        image: 'assets/images/Screens/13-Colleges/6.png'),
+                        image: 'assets/images/Screens/13-Colleges/4.png'),
                     _nimoContainer(
-                        image: 'assets/images/Screens/13-Colleges/7.png'),
+                        image: 'assets/images/Screens/13-Colleges/6.png'),
                   ],
                 ),
               ],
