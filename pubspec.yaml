@@ -93,6 +93,12 @@ flutter:
      - assets/images/Screens/26-more option/3-Rate QueueY.png
      - assets/images/Screens/26-more option/4-Invite your friends.png
      - assets/images/Screens/26-more option/5-Contact us.png
+     - assets/images/Screens/14-select service/1-Labs.png
+     - assets/images/Screens/14-select service/2-Office hours.png
+     - assets/images/Screens/14-select service/3-Student Affairs.png
+     - assets/images/Screens/14-select service/4-Library.png
+     - assets/images/Screens/14-select service/5-Health Care.png
+     - assets/images/Screens/14-select service/6-Payments.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:queuey/3%20-Nasr/11-book%20Q%20now.dart';
+
+import '2 -Algaraiehy/14-select service.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xff40A3A3),
         fontFamily: 'OpenSans',
       ),
-      home: BookQNow(),
+      home: SelectService(),
     );
   }
 }

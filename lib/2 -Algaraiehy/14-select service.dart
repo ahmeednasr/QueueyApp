@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/3%20-Nasr/13-Colleges.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
-class HomeScreen extends StatelessWidget {
+class SelectService extends StatelessWidget {
   _card({String image, String name}) {
     return Column(
       children: [
@@ -11,14 +10,16 @@ class HomeScreen extends StatelessWidget {
           width: 109,
           height: 109,
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 5),
-          child: Text(
-            name,
-            style: TextStyle(
-              color: Color(0xff3A4D4D),
-              fontSize: 17.0,
-              fontWeight: FontWeight.bold,
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 5),
+            child: Text(
+              name,
+              style: TextStyle(
+                color: Color(0xff3A4D4D),
+                fontSize: 17.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
@@ -44,7 +45,7 @@ class HomeScreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height * .03,
             ),
             Text(
-              'Select your destination',
+              'Select your service',
               style: TextStyle(
                 color: Color(0xff3A4D4D),
                 fontSize: 24.0,
@@ -78,7 +79,7 @@ class HomeScreen extends StatelessWidget {
 
                 filled: true,
                 fillColor: Color.fromRGBO(121, 190, 190, 0.52),
-                hintText: 'Search for destination',
+                hintText: 'Search for service',
                 hintStyle: TextStyle(fontSize: 20.0, color: Color(0xff919191)),
                 contentPadding:
                     const EdgeInsets.only(left: 10.0, bottom: 6.0, top: 10.0),
@@ -111,36 +112,54 @@ class HomeScreen extends StatelessWidget {
                   scrollDirection: Axis.vertical,
                   children: [
                     InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Colleges()));
-                        },
-                        child: _card(
-                            image:
-                                'assets/images/Screens/12-select destination/1-university.png',
-                            name: 'University')),
-                    _card(
+                      onTap: () {},
+                      child: _card(
                         image:
-                            'assets/images/Screens/12-select destination/2-barber.png',
-                        name: 'Barber Shop'),
-                    _card(
+                            'assets/images/Screens/14-select service/1-Labs.png',
+                        name: 'Labs',
+                      ), //Card1
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: _card(
                         image:
-                            'assets/images/Screens/12-select destination/3-hospital.png',
-                        name: 'Hospital'),
-                    _card(
+                            'assets/images/Screens/14-select service/2-Office hours.png',
+                        name: 'Office hours',
+                      ), //Card1
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: _card(
                         image:
-                            'assets/images/Screens/12-select destination/4-bank.png',
-                        name: 'Bank'),
-                    _card(
+                            'assets/images/Screens/14-select service/3-Student Affairs.png',
+                        name: 'Student Affairs',
+                      ), //Card1
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: _card(
                         image:
-                            'assets/images/Screens/12-select destination/5-parking.png',
-                        name: 'Car Parking'),
-                    _card(
+                            'assets/images/Screens/14-select service/4-Library.png',
+                        name: 'Library',
+                      ), //Card1
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: _card(
                         image:
-                            'assets/images/Screens/12-select destination/6-cafe.png',
-                        name: 'Cafe'),
+                            'assets/images/Screens/14-select service/5-Health Care.png',
+                        name: 'Health Care',
+                      ), //Card1
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: _card(
+                        image:
+                            'assets/images/Screens/14-select service/6-Payments.png',
+                        name: 'Payments',
+                      ), //Card1
+                    ),
+                    
                   ],
                 ),
               ),
