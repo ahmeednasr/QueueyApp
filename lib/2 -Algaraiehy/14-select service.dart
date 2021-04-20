@@ -1,29 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:queuey/1%20-AbdAlmonem/20.1-doctor%20IT.dart';
+import 'package:queuey/3%20-Nasr/19-select%20department.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class SelectService extends StatelessWidget {
   _card({String image, String name}) {
-    return Column(
-      children: [
-        Image.asset(
-          image,
-          width: 109,
-          height: 109,
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 5),
-            child: Text(
-              name,
-              style: TextStyle(
-                color: Color(0xff3A4D4D),
-                fontSize: 17.0,
-                fontWeight: FontWeight.bold,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 15),
+      child: Container(
+        width: 130,
+        height: 130,
+        child: Column(
+          children: [
+            Image.asset(
+              image,
+              width: 109,
+              height: 109,
+            ),
+            Expanded(
+              child: Text(
+                name,
+                style: TextStyle(
+                  color: Color(0xff3A4D4D),
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
+          ],
         ),
-      ],
+      ),
     );
   }
 
@@ -34,10 +40,8 @@ class SelectService extends StatelessWidget {
       appBar: MyAppBar(
         context: context,
       ),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        padding: EdgeInsets.symmetric(horizontal: 20),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -53,7 +57,7 @@ class SelectService extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * .03,
+              height: 15,
             ),
             TextField(
               controller: null,
@@ -94,74 +98,89 @@ class SelectService extends StatelessWidget {
               ),
             ), //TextField
 
-            SizedBox(
-              height: MediaQuery.of(context).size.height * .03,
-            ),
+            SizedBox(height: 10),
             Expanded(
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                // color: Color(0xffcccccc),
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 0,
-                  mainAxisSpacing: 0,
-                  padding: EdgeInsets.all(0),
-                  controller: new ScrollController(keepScrollOffset: false),
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    InkWell(
+              child: ListView(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      InkWell(
+                        onTap: () {},
+                        child: _card(
+                          image:
+                              'assets/images/Screens/14-select service/1-Labs.png',
+                          name: 'Labs',
+                        ), //Card1
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SelectDepartment()));
+                        },
+                        child: _card(
+                          image:
+                              'assets/images/Screens/14-select service/2-Office hours.png',
+                          name: 'Office hours',
+                        ), //Card1
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      InkWell(
+                        onTap: () {},
+                        child: _card(
+                          image:
+                              'assets/images/Screens/14-select service/3-Student Affairs.png',
+                          name: 'Student Affairs',
+                        ), //Card1
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: _card(
+                          image:
+                              'assets/images/Screens/14-select service/4-Library.png',
+                          name: 'Library',
+                        ), //Card1
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      InkWell(
+                        onTap: () {},
+                        child: _card(
+                          image:
+                              'assets/images/Screens/14-select service/5-Health Care.png',
+                          name: 'Health Care',
+                        ), //Card1
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: _card(
+                          image:
+                              'assets/images/Screens/14-select service/6-Payments.png',
+                          name: 'Payments',
+                        ), //Card1
+                      ),
+                    ],
+                  ),
+                  Center(
+                    child: InkWell(
                       onTap: () {},
                       child: _card(
                         image:
-                            'assets/images/Screens/14-select service/1-Labs.png',
-                        name: 'Labs',
+                            'assets/images/Screens/14-select service/7-Events.png',
+                        name: 'Events',
                       ), //Card1
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: _card(
-                        image:
-                            'assets/images/Screens/14-select service/2-Office hours.png',
-                        name: 'Office hours',
-                      ), //Card1
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: _card(
-                        image:
-                            'assets/images/Screens/14-select service/3-Student Affairs.png',
-                        name: 'Student Affairs',
-                      ), //Card1
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: _card(
-                        image:
-                            'assets/images/Screens/14-select service/4-Library.png',
-                        name: 'Library',
-                      ), //Card1
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: _card(
-                        image:
-                            'assets/images/Screens/14-select service/5-Health Care.png',
-                        name: 'Health Care',
-                      ), //Card1
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: _card(
-                        image:
-                            'assets/images/Screens/14-select service/6-Payments.png',
-                        name: 'Payments',
-                      ), //Card1
-                    ),
-                    
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],

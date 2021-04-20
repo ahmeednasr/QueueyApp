@@ -1,29 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:queuey/1%20-AbdAlmonem/27-about%20Queuey.dart';
+import 'package:queuey/1%20-AbdAlmonem/28-report%20a%20Problem.dart';
+import 'package:queuey/2%20-Algaraiehy/30-contact%20us.dart';
+import 'package:queuey/3%20-Nasr/29-rate%20queuey.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class MoreOption extends StatelessWidget {
   _card({String image, String name}) {
-    return Column(
-      children: [
-        Image.asset(
-          image,
-          width: 109,
-          height: 109,
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 5),
-            child: Text(
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 25),
+      child: Container(
+        width: 130,
+        height: 133,
+        child: Column(
+          children: [
+            Image.asset(
+              image,
+              width: 109,
+              height: 109,
+            ),
+            Expanded(
+              child: SizedBox(),
+            ),
+            Text(
               name,
               style: TextStyle(
                 color: Color(0xff3A4D4D),
-                fontSize: 17.0,
+                fontSize: 14,
                 fontWeight: FontWeight.bold,
               ),
             ),
-          ),
+          ],
         ),
-      ],
+      ),
     );
   }
 
@@ -34,44 +43,36 @@ class MoreOption extends StatelessWidget {
       appBar: MyAppBar(
         context: context,
       ),
-      body: Container(
-        // color: Color(0xffcccccc),
-        width: double.infinity,
-        height: double.infinity,
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * .03,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            'More options',
+            style: TextStyle(
+              color: Color(0xff3A4D4D),
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold,
             ),
-            Text(
-              'More options',
-              style: TextStyle(
-                color: Color(0xff3A4D4D),
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * .03,
-            ),
-            Expanded(
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                // color: Color.fromRGBO(255, 194, 0, 0.28),
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 0,
-                  mainAxisSpacing: 0,
-                  padding: EdgeInsets.all(0),
-                  controller: new ScrollController(keepScrollOffset: false),
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Expanded(
+            child: ListView(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AboutQueuey()));
+                      },
                       child: _card(
                         image:
                             'assets/images/Screens/26-more option/1-About QueueY.png',
@@ -79,15 +80,30 @@ class MoreOption extends StatelessWidget {
                       ), //card-1
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ReportaProblem()));
+                      },
                       child: _card(
                         image:
                             'assets/images/Screens/26-more option/2-Report a Problem.png',
                         name: 'Report a Problem',
                       ), //card-2
                     ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RateQueuey()));
+                      },
                       child: _card(
                         image:
                             'assets/images/Screens/26-more option/3-Rate QueueY.png',
@@ -99,21 +115,25 @@ class MoreOption extends StatelessWidget {
                           'assets/images/Screens/26-more option/4-Invite your friends.png',
                       name: 'Invite your friends',
                     ), //card-4
-                    InkWell(
-                      onTap: () {},
-                      child: _card(
+                  ],
+                ),
+                Center(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ContactUs()));
+                    },
+                    child: _card(
                       image:
                           'assets/images/Screens/26-more option/5-Contact us.png',
                       name: 'Contact us',
                     ), //card-5
-                    ),
-                    
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -55,6 +55,7 @@ flutter:
      - assets/images/Screens/11-book Q now/index2.png
      - assets/images/Screens/11-book Q now/index3.png
      - assets/images/Screens/11-book Q now/index4.png
+     - assets/images/Screens/11-book Q now/index5.png
      - assets/images/Screens/11-book Q now/facebook.png
      - assets/images/Screens/11-book Q now/instagram.png
      - assets/images/Screens/11-book Q now/Twitter.png
@@ -99,6 +100,7 @@ flutter:
      - assets/images/Screens/14-select service/4-Library.png
      - assets/images/Screens/14-select service/5-Health Care.png
      - assets/images/Screens/14-select service/6-Payments.png
+     - assets/images/Screens/14-select service/7-Events.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

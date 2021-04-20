@@ -1,30 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:queuey/1%20-AbdAlmonem/20.4%20doctor%20Defult.dart';
 import 'package:queuey/3%20-Nasr/13-Colleges.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
-class HomeScreen extends StatelessWidget {
-  _card({String image, String name}) {
-    return Column(
-      children: [
-        Image.asset(
-          image,
-          width: 109,
-          height: 109,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 5),
-          child: Text(
-            name,
-            style: TextStyle(
-              color: Color(0xff3A4D4D),
-              fontSize: 17.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final List<Map> _list = [
+    {
+      'image': 'assets/images/Screens/12-select destination/1-university.png',
+      'title': 'University',
+      'Screen': Colleges()
+    },
+    {
+      'image': 'assets/images/Screens/12-select destination/2-barber.png',
+      'title': 'Barber Shop',
+      'Screen': DefultDoctors()
+    },
+    {
+      'image': 'assets/images/Screens/12-select destination/3-hospital.png',
+      'title': 'Hospital',
+      'Screen': DefultDoctors()
+    },
+    {
+      'image': 'assets/images/Screens/12-select destination/4-bank.png',
+      'title': 'Bank',
+      'Screen': DefultDoctors()
+    },
+    {
+      'image': 'assets/images/Screens/12-select destination/5-parking.png',
+      'title': 'Car Parking',
+      'Screen': DefultDoctors()
+    },
+    {
+      'image': 'assets/images/Screens/12-select destination/6-cafe.png',
+      'title': 'Cafe',
+      'Screen': DefultDoctors()
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -33,15 +49,13 @@ class HomeScreen extends StatelessWidget {
       appBar: MyAppBar(
         context: context,
       ),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
+      body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * .03,
+              height: 20,
             ),
             Text(
               'Select your destination',
@@ -52,7 +66,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * .03,
+              height: 10,
             ),
             TextField(
               controller: null,
@@ -61,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                 fontSize: 20.0,
                 color: Color(0xff000000),
               ),
-              decoration: new InputDecoration(
+              decoration: InputDecoration(
                 prefixIcon: Padding(
                   padding: const EdgeInsets.only(
                     left: 10,
@@ -94,57 +108,48 @@ class HomeScreen extends StatelessWidget {
             ), //TextField
 
             SizedBox(
-              height: MediaQuery.of(context).size.height * .03,
+              height: 10,
             ),
             Expanded(
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                // color: Color(0xffcccccc),
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 0,
-                  mainAxisSpacing: 0,
-                  padding: EdgeInsets.all(0),
-                  controller: new ScrollController(keepScrollOffset: false),
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Colleges()));
-                        },
-                        child: _card(
-                            image:
-                                'assets/images/Screens/12-select destination/1-university.png',
-                            name: 'University')),
-                    _card(
-                        image:
-                            'assets/images/Screens/12-select destination/2-barber.png',
-                        name: 'Barber Shop'),
-                    _card(
-                        image:
-                            'assets/images/Screens/12-select destination/3-hospital.png',
-                        name: 'Hospital'),
-                    _card(
-                        image:
-                            'assets/images/Screens/12-select destination/4-bank.png',
-                        name: 'Bank'),
-                    _card(
-                        image:
-                            'assets/images/Screens/12-select destination/5-parking.png',
-                        name: 'Car Parking'),
-                    _card(
-                        image:
-                            'assets/images/Screens/12-select destination/6-cafe.png',
-                        name: 'Cafe'),
-                  ],
-                ),
-              ),
-            ),
+                child: GridView.builder(
+              itemCount: _list.length,
+              gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 1.2, crossAxisCount: 2),
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: EdgeInsets.all(10),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => _list[index]['Screen'],
+                          ));
+                    },
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            _list[index]['image'],
+                            width: 109,
+                            height: 109,
+                          ),
+                          Expanded(child: SizedBox()),
+                          Text(
+                            _list[index]['title'],
+                            style: TextStyle(
+                              color: Color(0xff3A4D4D),
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            )),
           ],
         ),
       ),

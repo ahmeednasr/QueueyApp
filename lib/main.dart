@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '2 -Algaraiehy/30-contact us.dart';
-
-
+import 'package:queuey/Custom_Widget/NavigationBar.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,8 +21,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xff40A3A3),
         fontFamily: 'OpenSans',
       ),
-      home: ContactUs(),
-      
+      home: NavBar(),
     );
   }
 }

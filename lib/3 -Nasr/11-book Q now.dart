@@ -13,7 +13,8 @@ class _BookQNowState extends State<BookQNow> {
     'assets/images/Screens/11-book Q now/index1.png',
     'assets/images/Screens/11-book Q now/index2.png',
     'assets/images/Screens/11-book Q now/index3.png',
-    'assets/images/Screens/11-book Q now/index4.png'
+    'assets/images/Screens/11-book Q now/index4.png',
+    'assets/images/Screens/11-book Q now/index5.png'
   ];
 
   @override
@@ -156,6 +157,8 @@ class _BookQNowState extends State<BookQNow> {
             Image(
               image: AssetImage(
                   'assets/images/Screens/11-book Q now/facebook.png'),
+              width: 44,
+              height: 44,
             ),
             SizedBox(
               width: 15,
@@ -163,6 +166,8 @@ class _BookQNowState extends State<BookQNow> {
             Image(
               image: AssetImage(
                   'assets/images/Screens/11-book Q now/instagram.png'),
+              width: 44,
+              height: 44,
             ),
             SizedBox(
               width: 15,
@@ -170,6 +175,8 @@ class _BookQNowState extends State<BookQNow> {
             Image(
               image:
                   AssetImage('assets/images/Screens/11-book Q now/Twitter.png'),
+              width: 44,
+              height: 44,
             )
           ],
         ),

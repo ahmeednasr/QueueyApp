@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:queuey/2%20-Algaraiehy/14-select%20service.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 import '19-select department.dart';
@@ -52,7 +53,7 @@ class _CollegesState extends State<Colleges> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SelectDepartment()));
+                                  builder: (context) => SelectService()));
                         }),
                     _nimoContainer(
                         image: 'assets/images/Screens/13-Colleges/3.png'),
@@ -71,8 +72,8 @@ class _CollegesState extends State<Colleges> {
                       },
                       child: Container(
                         padding: EdgeInsets.all(3),
-                        height: 75,
-                        width: 75,
+                        height: 90,
+                        width: 90,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(50),

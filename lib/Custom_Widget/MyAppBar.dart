@@ -35,8 +35,8 @@ class MyAppBar extends AppBar {
                 ),
                 Container(
                   padding: EdgeInsets.all(7),
-                  height: 110,
-                  width: 110,
+                  height: 100,
+                  width: 100,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(80),
                       color: Color.fromRGBO(50, 157, 156, .25)),
