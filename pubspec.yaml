@@ -101,6 +101,7 @@ flutter:
      - assets/images/Screens/14-select service/5-Health Care.png
      - assets/images/Screens/14-select service/6-Payments.png
      - assets/images/Screens/14-select service/7-Events.png
+     - assets/images/Screens/7-Success welcome/7-Success welcome.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
