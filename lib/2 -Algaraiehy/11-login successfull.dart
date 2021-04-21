@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:queuey/3%20-Nasr/11-book%20Q%20now.dart';
 
 class LoginSuccessfull extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: ListView(
         children: [
           Container(
             width: double.infinity,
@@ -66,7 +67,10 @@ class LoginSuccessfull extends StatelessWidget {
                 height: 40,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => BookQNow()));
+                },
                 child: Text(
                   'Continue',
                   style: TextStyle(

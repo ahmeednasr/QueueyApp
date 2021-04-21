@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:queuey/3%20-Nasr/11-book%20Q%20now.dart';
 
 class Congrats extends StatefulWidget {
   @override
@@ -6,13 +9,13 @@ class Congrats extends StatefulWidget {
 }
 
 class _CongratsState extends State<Congrats> {
-  /*void initState() {
+  void initState() {
     Timer(Duration(seconds: 2), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => SiginInUp()));
+          context, MaterialPageRoute(builder: (context) => BookQNow()));
     });
     super.initState();
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {

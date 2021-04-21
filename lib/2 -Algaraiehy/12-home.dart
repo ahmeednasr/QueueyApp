@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/1%20-AbdAlmonem/20.4%20doctor%20Defult.dart';
+import 'package:queuey/1%20-AbdAlmonem/20.4%20Defult%20Screen.dart';
 import 'package:queuey/3%20-Nasr/13-Colleges.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
@@ -18,27 +18,27 @@ class _HomeScreenState extends State<HomeScreen> {
     {
       'image': 'assets/images/Screens/12-select destination/2-barber.png',
       'title': 'Barber Shop',
-      'Screen': DefultDoctors()
+      'Screen': DefultScreen()
     },
     {
       'image': 'assets/images/Screens/12-select destination/3-hospital.png',
       'title': 'Hospital',
-      'Screen': DefultDoctors()
+      'Screen': DefultScreen()
     },
     {
       'image': 'assets/images/Screens/12-select destination/4-bank.png',
       'title': 'Bank',
-      'Screen': DefultDoctors()
+      'Screen': DefultScreen()
     },
     {
       'image': 'assets/images/Screens/12-select destination/5-parking.png',
       'title': 'Car Parking',
-      'Screen': DefultDoctors()
+      'Screen': DefultScreen()
     },
     {
       'image': 'assets/images/Screens/12-select destination/6-cafe.png',
       'title': 'Cafe',
-      'Screen': DefultDoctors()
+      'Screen': DefultScreen()
     },
   ];
 

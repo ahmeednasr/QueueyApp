@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
-class DefultDoctors extends StatelessWidget {
+class DefultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

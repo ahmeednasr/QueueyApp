@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:queuey/1%20-AbdAlmonem/20.1-doctor%20IT.dart';
 import 'package:queuey/1%20-AbdAlmonem/20.2-doctor%20CS.dart';
 import 'package:queuey/1%20-AbdAlmonem/20.3-doctor%20IS.dart';
-import 'package:queuey/1%20-AbdAlmonem/20.4%20doctor%20Defult.dart';
+import 'package:queuey/1%20-AbdAlmonem/20.4%20Defult%20Screen.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class SelectDepartment extends StatefulWidget {
@@ -30,12 +30,12 @@ class _SelectDepartmentState extends State<SelectDepartment> {
     {
       'department': 'Software Engineering',
       'image': 'assets/images/Screens/19-select department/SW.png',
-      'Screen': DefultDoctors()
+      'Screen': DefultScreen()
     },
     {
       'department': 'Bioinformatics',
       'image': 'assets/images/Screens/19-select department/Bio.png',
-      'Screen': DefultDoctors()
+      'Screen': DefultScreen()
     },
   ];
 

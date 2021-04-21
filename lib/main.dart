@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:queuey/Custom_Widget/NavigationBar.dart';
 import 'package:queuey/SplashScreen.dart';
-
-import '2 -Algaraiehy/11-login successfull.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

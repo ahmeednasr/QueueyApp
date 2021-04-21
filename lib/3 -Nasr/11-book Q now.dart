@@ -129,7 +129,7 @@ class _BookQNowState extends State<BookQNow> {
                   borderRadius: BorderRadius.circular(10),
                 )),
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                   context, MaterialPageRoute(builder: (context) => NavBar()));
             },
             child: Padding(
