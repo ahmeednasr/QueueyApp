@@ -10,8 +10,9 @@ class MoreOption extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 25),
       child: Container(
+        // color: Colors.yellow,
         width: 130,
-        height: 133,
+        height: 155,
         child: Column(
           children: [
             Image.asset(
@@ -24,6 +25,9 @@ class MoreOption extends StatelessWidget {
             ),
             Text(
               name,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 color: Color(0xff3A4D4D),
                 fontSize: 14,

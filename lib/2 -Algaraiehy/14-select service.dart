@@ -4,30 +4,30 @@ import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class SelectService extends StatelessWidget {
   _card({String image, String name}) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 15),
-      child: Container(
-        width: 130,
-        height: 130,
-        child: Column(
-          children: [
-            Image.asset(
-              image,
-              width: 109,
-              height: 109,
-            ),
-            Expanded(
-              child: Text(
-                name,
-                style: TextStyle(
-                  color: Color(0xff3A4D4D),
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
+    return Container(
+      //color: Colors.red,
+      width: 130,
+      height: 130,
+      child: Column(
+        children: [
+          Image.asset(
+            image,
+            width: 109,
+            height: 109,
+          ),
+          Expanded(
+            child: Text(
+              name,
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              style: TextStyle(
+                color: Color(0xff3A4D4D),
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -127,6 +127,9 @@ class SelectService extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -148,6 +151,9 @@ class SelectService extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -168,6 +174,9 @@ class SelectService extends StatelessWidget {
                         ), //Card1
                       ),
                     ],
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                   Center(
                     child: InkWell(

@@ -128,19 +128,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: Container(
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Image.asset(
                             _list[index]['image'],
                             width: 109,
                             height: 109,
                           ),
-                          Expanded(child: SizedBox()),
-                          Text(
-                            _list[index]['title'],
-                            style: TextStyle(
-                              color: Color(0xff3A4D4D),
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                          Container(
+                            height: 23,
+                            width: 106,
+                            child: Text(
+                              _list[index]['title'],
+                              textAlign: TextAlign.center,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: Color(0xff3A4D4D),
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ],

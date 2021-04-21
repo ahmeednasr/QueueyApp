@@ -66,13 +66,13 @@ class _SelectDepartmentState extends State<SelectDepartment> {
                     return Padding(
                       padding: EdgeInsets.symmetric(horizontal: 15),
                       child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 15),
-                        padding: EdgeInsets.symmetric(horizontal: 15),
                         height: 55,
                         width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(vertical: 15),
+                        padding: EdgeInsets.only(left: 15),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
-                            color: Colors.grey[300]),
+                            color: Colors.grey[200]),
                         child: InkWell(
                           onTap: () {
                             Navigator.push(

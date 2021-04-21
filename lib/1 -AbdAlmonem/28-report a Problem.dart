@@ -19,7 +19,7 @@ class ReportaProblem extends StatelessWidget {
               "Report a Problem",
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 30,
+                  fontSize: 24,
                   fontWeight: FontWeight.bold),
             ),
           ),
@@ -72,6 +72,9 @@ class ReportaProblem extends StatelessWidget {
                         },
                         child: Text(
                           'Choose File',
+                          // textAlign: TextAlign.center,
+
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 14,
@@ -81,10 +84,13 @@ class ReportaProblem extends StatelessWidget {
                     )),
                   ),
                   SizedBox(
-                    width: 8,
+                    width: 5,
                   ),
                   Text(
                     "Upload screenshot if available",
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                 ],
