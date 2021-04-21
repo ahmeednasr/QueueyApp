@@ -9,6 +9,7 @@ class Colleges extends StatefulWidget {
 
 class _CollegesState extends State<Colleges> {
   double _nimo = 1;
+  bool _nimocondition = false;
   _nimoContainer({String image, Function ontap}) {
     return InkWell(
       onTap: ontap,
@@ -65,7 +66,13 @@ class _CollegesState extends State<Colleges> {
                     InkWell(
                       onTap: () {
                         setState(() {
-                          _nimo = 90;
+                          _nimocondition = !_nimocondition;
+                          if (_nimocondition == true) {
+                            _nimo = 90;
+                          }
+                          if (_nimocondition == false) {
+                            _nimo = 0;
+                          }
                         });
                       },
                       child: Container(
