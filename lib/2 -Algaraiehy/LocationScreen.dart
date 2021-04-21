@@ -152,6 +152,7 @@ class _LocationScreenState extends State<LocationScreen> {
       color: Colors.white,
       child: Center(
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             ElevatedButton(
               style: ElevatedButton.styleFrom(

@@ -44,7 +44,7 @@ class _BookQNowState extends State<BookQNow> {
             width: MediaQuery.of(context).size.width,
             child: Swiper(
               autoplay: true,
-              duration: 250,
+              duration: 240,
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
                 return Image(

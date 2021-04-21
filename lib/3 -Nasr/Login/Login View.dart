@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:queuey/3%20-Nasr/11-book%20Q%20now.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -191,6 +192,8 @@ class _LoginViewState extends State<LoginView> {
             ),
             onPressed: () {
               _submitForm();
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => BookQNow()));
               print("$_email $_password");
             },
             child: Text(
