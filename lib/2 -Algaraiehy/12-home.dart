@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      //  backgroundColor: Colors.grey,
       appBar: MyAppBar(
         context: context,
       ),
@@ -114,44 +114,39 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: GridView.builder(
               itemCount: _list.length,
               gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 1.2, crossAxisCount: 2),
+                  childAspectRatio: 1, crossAxisCount: 2),
               itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: EdgeInsets.all(10),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => _list[index]['Screen'],
-                          ));
-                    },
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Image.asset(
-                            _list[index]['image'],
-                            width: 109,
-                            height: 109,
-                          ),
-                          Container(
-                            height: 23,
-                            width: 106,
-                            child: Text(
-                              _list[index]['title'],
-                              textAlign: TextAlign.center,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                color: Color(0xff3A4D4D),
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => _list[index]['Screen'],
+                        ));
+                  },
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          _list[index]['image'],
+                          width: 109,
+                          height: 109,
+                        ),
+                        Flexible(
+                          child: Text(
+                            _list[index]['title'],
+                            textAlign: TextAlign.center,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              color: Color(0xff3A4D4D),
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 );

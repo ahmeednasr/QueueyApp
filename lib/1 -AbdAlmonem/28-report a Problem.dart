@@ -72,8 +72,7 @@ class ReportaProblem extends StatelessWidget {
                         },
                         child: Text(
                           'Choose File',
-                          // textAlign: TextAlign.center,
-
+                          textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -86,12 +85,16 @@ class ReportaProblem extends StatelessWidget {
                   SizedBox(
                     width: 5,
                   ),
-                  Text(
-                    "Upload screenshot if available",
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  Flexible(
+                    child: Text(
+                      "Upload screenshot if available",
+                      textAlign: TextAlign.left,
+                      maxLines: 2,
+                      //softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    ),
                   ),
                 ],
               ),
