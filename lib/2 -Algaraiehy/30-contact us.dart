@@ -38,7 +38,7 @@ class ContactUs extends StatelessWidget {
         context: context,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        padding: EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -55,71 +55,75 @@ class ContactUs extends StatelessWidget {
               height: 50,
             ),
             Expanded(
-              child: ListView(
-                // shrinkWrap: true,
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                children: [
-                  _myCard(
-                      iconData: Icons.mail_outline,
-                      text: 'QueueY.com',
-                      context: context), // 1
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * .03,
-                  ),
-                  _myCard(
-                      iconData: Icons.phone_android_rounded,
-                      text: '+20100000000',
-                      context: context), // 2
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * .03,
-                  ),
-                  _myCard(
-                      iconData: Icons.location_on,
-                      text: 'Faculty of computer science, Mansoura, Egypt.',
-                      context: context), // 3
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/images/Screens/11-book Q now/facebook.png',
-                        width: 44,
-                        height: 44,
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Image.asset(
-                        'assets/images/Screens/11-book Q now/instagram.png',
-                        width: 44,
-                        height: 44,
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Image.asset(
-                        'assets/images/Screens/11-book Q now/Twitter.png',
-                        width: 44,
-                        height: 44,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Center(
-                    child: Text(
-                      '@QueueY',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Theme.of(context).primaryColor,
-                        fontWeight: FontWeight.bold,
+              child: Scrollbar(
+                showTrackOnHover: true,
+                child: ListView(
+                  physics: BouncingScrollPhysics(),
+                  // shrinkWrap: true,
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  children: [
+                    _myCard(
+                        iconData: Icons.mail_outline,
+                        text: 'QueueY.com',
+                        context: context), // 1
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * .03,
+                    ),
+                    _myCard(
+                        iconData: Icons.phone_android_rounded,
+                        text: '+20100000000',
+                        context: context), // 2
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * .03,
+                    ),
+                    _myCard(
+                        iconData: Icons.location_on,
+                        text: 'Faculty of computer science, Mansoura, Egypt.',
+                        context: context), // 3
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/images/Screens/11-book Q now/facebook.png',
+                          width: 44,
+                          height: 44,
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Image.asset(
+                          'assets/images/Screens/11-book Q now/instagram.png',
+                          width: 44,
+                          height: 44,
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Image.asset(
+                          'assets/images/Screens/11-book Q now/Twitter.png',
+                          width: 44,
+                          height: 44,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Center(
+                      child: Text(
+                        '@QueueY',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],

@@ -65,76 +65,81 @@ class MoreOption extends StatelessWidget {
             height: 10,
           ),
           Expanded(
-            child: ListView(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AboutQueuey()));
-                      },
-                      child: _card(
-                        image:
-                            'assets/images/Screens/26-more option/1-About QueueY.png',
-                        name: 'About QueueY',
-                      ), //card-1
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ReportaProblem()));
-                      },
-                      child: _card(
-                        image:
-                            'assets/images/Screens/26-more option/2-Report a Problem.png',
-                        name: 'Report a Problem',
-                      ), //card-2
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RateQueuey()));
-                      },
-                      child: _card(
-                        image:
-                            'assets/images/Screens/26-more option/3-Rate QueueY.png',
-                        name: 'Rate QueueY',
-                      ), //card-3
-                    ),
-                    _card(
-                      image:
-                          'assets/images/Screens/26-more option/4-Invite your friends.png',
-                      name: 'Invite your friends',
-                    ), //card-4
-                  ],
-                ),
-                Center(
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ContactUs()));
-                    },
-                    child: _card(
-                      image:
-                          'assets/images/Screens/26-more option/5-Contact us.png',
-                      name: 'Contact us',
-                    ), //card-5
+            child: Scrollbar(
+              child: ListView(
+                physics: BouncingScrollPhysics(),
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AboutQueuey()));
+                        },
+                        child: _card(
+                          image:
+                              'assets/images/Screens/26-more option/1-About QueueY.png',
+                          name: 'About QueueY',
+                        ), //card-1
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ReportaProblem()));
+                        },
+                        child: _card(
+                          image:
+                              'assets/images/Screens/26-more option/2-Report a Problem.png',
+                          name: 'Report a Problem',
+                        ), //card-2
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RateQueuey()));
+                        },
+                        child: _card(
+                          image:
+                              'assets/images/Screens/26-more option/3-Rate QueueY.png',
+                          name: 'Rate QueueY',
+                        ), //card-3
+                      ),
+                      _card(
+                        image:
+                            'assets/images/Screens/26-more option/4-Invite your friends.png',
+                        name: 'Invite your friends',
+                      ), //card-4
+                    ],
+                  ),
+                  Center(
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ContactUs()));
+                      },
+                      child: _card(
+                        image:
+                            'assets/images/Screens/26-more option/5-Contact us.png',
+                        name: 'Contact us',
+                      ), //card-5
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

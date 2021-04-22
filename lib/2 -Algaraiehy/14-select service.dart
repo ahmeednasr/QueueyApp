@@ -65,7 +65,7 @@ class SelectService extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * .03,
+              height: 30,
             ),
             Text(
               'Select your service',
@@ -119,93 +119,97 @@ class SelectService extends StatelessWidget {
 
             SizedBox(height: 10),
             Expanded(
-              child: ListView(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      InkWell(
-                        onTap: () {},
-                        child: _card(
-                          image:
-                              'assets/images/Screens/14-select service/1-Labs.png',
-                          name: 'Labs',
-                        ), //Card1
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(_createRoute());
-                        },
-                        child: _card(
-                          image:
-                              'assets/images/Screens/14-select service/2-Office hours.png',
-                          name: 'Office hours',
-                        ), //Card1
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      InkWell(
-                        onTap: () {},
-                        child: _card(
-                          image:
-                              'assets/images/Screens/14-select service/3-Student Affairs.png',
-                          name: 'Student Affairs',
-                        ), //Card1
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: _card(
-                          image:
-                              'assets/images/Screens/14-select service/4-Library.png',
-                          name: 'Library',
-                        ), //Card1
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      InkWell(
-                        onTap: () {},
-                        child: _card(
-                          image:
-                              'assets/images/Screens/14-select service/5-Health Care.png',
-                          name: 'Health Care',
-                        ), //Card1
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: _card(
-                          image:
-                              'assets/images/Screens/14-select service/6-Payments.png',
-                          name: 'Payments',
-                        ), //Card1
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Center(
-                    child: InkWell(
-                      onTap: () {},
-                      child: _card(
-                        image:
-                            'assets/images/Screens/14-select service/7-Events.png',
-                        name: 'Events',
-                      ), //Card1
+              child: Scrollbar(
+                showTrackOnHover: true,
+                child: ListView(
+                  physics: BouncingScrollPhysics(),
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(
+                          onTap: () {},
+                          child: _card(
+                            image:
+                                'assets/images/Screens/14-select service/1-Labs.png',
+                            name: 'Labs',
+                          ), //Card1
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(_createRoute());
+                          },
+                          child: _card(
+                            image:
+                                'assets/images/Screens/14-select service/2-Office hours.png',
+                            name: 'Office hours',
+                          ), //Card1
+                        ),
+                      ],
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(
+                          onTap: () {},
+                          child: _card(
+                            image:
+                                'assets/images/Screens/14-select service/3-Student Affairs.png',
+                            name: 'Student Affairs',
+                          ), //Card1
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: _card(
+                            image:
+                                'assets/images/Screens/14-select service/4-Library.png',
+                            name: 'Library',
+                          ), //Card1
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(
+                          onTap: () {},
+                          child: _card(
+                            image:
+                                'assets/images/Screens/14-select service/5-Health Care.png',
+                            name: 'Health Care',
+                          ), //Card1
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: _card(
+                            image:
+                                'assets/images/Screens/14-select service/6-Payments.png',
+                            name: 'Payments',
+                          ), //Card1
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Center(
+                      child: InkWell(
+                        onTap: () {},
+                        child: _card(
+                          image:
+                              'assets/images/Screens/14-select service/7-Events.png',
+                          name: 'Events',
+                        ), //Card1
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

@@ -48,7 +48,7 @@ class AboutQueuey extends StatelessWidget {
         context: context,
       ),
       backgroundColor: Colors.white,
-      body: ListView(
+      body: Column(
         children: [
           SizedBox(
             height: 30,
@@ -62,24 +62,33 @@ class AboutQueuey extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          SizedBox(
-            height: 30,
+          Expanded(
+            child: Scrollbar(
+              child: ListView(
+                physics: BouncingScrollPhysics(),
+                children: [
+                  SizedBox(
+                    height: 15,
+                  ),
+                  _card(
+                      context: context,
+                      title: 'QueueY',
+                      content:
+                          "QueueY is a smart solution represented on E-queuing system makes Queue of one!"),
+                  _card(
+                      context: context,
+                      title: "Vision",
+                      content:
+                          "Make Day to day tasks more easier, smarter and accessible."),
+                  _card(
+                      context: context,
+                      title: 'Mission',
+                      content:
+                          "Enable easy Queueing experience Booking,Pay Notify, and Tracking through QueueY Business-to-Business service"),
+                ],
+              ),
+            ),
           ),
-          _card(
-              context: context,
-              title: 'QueueY',
-              content:
-                  "QueueY is a smart solution represented on E-queuing system makes Queue of one!"),
-          _card(
-              context: context,
-              title: "Vision",
-              content:
-                  "Make Day to day tasks more easier, smarter and accessible."),
-          _card(
-              context: context,
-              title: 'Mission',
-              content:
-                  "Enable easy Queueing experience Booking,Pay Notify, and Tracking through QueueY Business-to-Business service"),
         ],
       ),
     );

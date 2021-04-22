@@ -78,49 +78,52 @@ class _SelectDepartmentState extends State<SelectDepartment> {
               ),
             ),
             Expanded(
-              child: ListView.builder(
-                  itemCount: _departmentList.length,
-                  itemBuilder: (context, int index) {
-                    return Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 15),
-                      child: Container(
-                        height: 55,
-                        width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.symmetric(vertical: 15),
-                        padding: EdgeInsets.only(left: 15),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.grey[200]),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(_createRoute(
-                                screen: _departmentList[index]['Screen']));
-                          },
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.all(5),
-                                child: Image(
-                                  image: AssetImage(
-                                      _departmentList[index]['image']),
+              child: Scrollbar(
+                child: ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                    itemCount: _departmentList.length,
+                    itemBuilder: (context, int index) {
+                      return Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        child: Container(
+                          height: 55,
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(vertical: 15),
+                          padding: EdgeInsets.only(left: 15),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.grey[200]),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(_createRoute(
+                                  screen: _departmentList[index]['Screen']));
+                            },
+                            child: Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.all(5),
+                                  child: Image(
+                                    image: AssetImage(
+                                        _departmentList[index]['image']),
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                _departmentList[index]['department'],
-                                style: TextStyle(
-                                    color: Colors.grey[800],
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 17),
-                              ),
-                            ],
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  _departmentList[index]['department'],
+                                  style: TextStyle(
+                                      color: Colors.grey[800],
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    );
-                  }),
+                      );
+                    }),
+              ),
             )
           ],
         ),

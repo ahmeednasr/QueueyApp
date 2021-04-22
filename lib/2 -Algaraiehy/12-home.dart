@@ -111,46 +111,50 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 10,
             ),
             Expanded(
-                child: GridView.builder(
-              itemCount: _list.length,
-              gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 1, crossAxisCount: 2),
-              itemBuilder: (BuildContext context, int index) {
-                return InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => _list[index]['Screen'],
-                        ));
-                  },
-                  child: Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          _list[index]['image'],
-                          width: 109,
-                          height: 109,
-                        ),
-                        Flexible(
-                          child: Text(
-                            _list[index]['title'],
-                            textAlign: TextAlign.center,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Color(0xff3A4D4D),
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                child: Scrollbar(
+              showTrackOnHover: true,
+              child: GridView.builder(
+                physics: BouncingScrollPhysics(),
+                itemCount: _list.length,
+                gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 1, crossAxisCount: 2),
+                itemBuilder: (BuildContext context, int index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => _list[index]['Screen'],
+                          ));
+                    },
+                    child: Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            _list[index]['image'],
+                            width: 109,
+                            height: 109,
+                          ),
+                          Flexible(
+                            child: Text(
+                              _list[index]['title'],
+                              textAlign: TextAlign.center,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: Color(0xff3A4D4D),
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             )),
           ],
         ),
