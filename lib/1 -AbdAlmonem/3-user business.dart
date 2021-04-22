@@ -28,14 +28,14 @@ class UserBusiness extends StatelessWidget {
             Text(
               "Get in touch with QueueY",
               style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 22,
                   color: Theme.of(context).primaryColor,
                   fontWeight: FontWeight.bold),
             ),
             Text(
               "Sign Up as:",
               style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 21,
                   color: Colors.grey[800],
                   fontWeight: FontWeight.bold),
             ),
@@ -59,7 +59,7 @@ class UserBusiness extends StatelessWidget {
                   'User',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 24,
+                      fontSize: 22,
                       color: Colors.white),
                 ),
               ),
@@ -84,7 +84,7 @@ class UserBusiness extends StatelessWidget {
                   'Business',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 24,
+                      fontSize: 22,
                       color: Colors.white),
                 ),
               ),

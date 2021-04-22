@@ -108,11 +108,11 @@ class _LocationScreenState extends State<LocationScreen> {
                         Navigator.of(context).pop();
                       },
                       child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 7),
+                        padding: EdgeInsets.symmetric(vertical: 7.5),
                         child: Text(
                           'Try again',
                           style:
-                              TextStyle(fontSize: 20, color: Color(0xffFFFAEB)),
+                              TextStyle(fontSize: 18, color: Color(0xffFFFAEB)),
                         ),
                       ),
                     ),
@@ -136,7 +136,7 @@ class _LocationScreenState extends State<LocationScreen> {
                         child: Text(
                           'Cancel',
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             color: Color(0xffFF7A6B),
                           ),
                         ),

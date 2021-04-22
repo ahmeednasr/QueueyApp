@@ -1,6 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:queuey/3%20-Nasr/31-settings.dart';
 
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => Setting(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      var begin = Offset(-1, 0); //Offset(1.0, 0.0);
+      var end = Offset.zero;
+      var curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
+
 class MyAppBar extends AppBar {
   MyAppBar({Key key, Widget title, BuildContext context})
       : super(
@@ -11,25 +29,17 @@ class MyAppBar extends AppBar {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 InkWell(
-                  /*onTap: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => screen()));
-              },*/
+                  onTap: () {
+                    Navigator.of(context).push(_createRoute());
+                  },
                   child: Container(
-                    height: 35,
-                    width: 35,
-                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 3),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Setting()));
-                      },
-                      child: Image(
-                        image: AssetImage('assets/images/MyAppBar/list.png'),
-                        fit: BoxFit.contain,
-                      ),
+                    height: 50,
+                    width: 50,
+                    //color: Colors.yellow,
+                    padding: EdgeInsets.all(11),
+                    child: Image(
+                      image: AssetImage('assets/images/MyAppBar/list.png'),
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),

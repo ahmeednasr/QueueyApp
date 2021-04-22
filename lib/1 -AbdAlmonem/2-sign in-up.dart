@@ -3,6 +3,24 @@ import 'package:queuey/3%20-Nasr/Login/Login%20View.dart';
 
 import '3-user business.dart';
 
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => LoginView(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      var begin = Offset(1.0, 0.0);
+      var end = Offset.zero;
+      var curve = Curves.easeIn;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
+
 class SiginInUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -29,8 +47,7 @@ class SiginInUp extends StatelessWidget {
                   color: Color.fromRGBO(50, 157, 156, .25)),
               child: Image(image: AssetImage('assets/images/Queue-amico.png')),
             ),
-            Center(
-                child: SizedBox(
+            SizedBox(
               width: 120,
               height: 50,
               child: ElevatedButton(
@@ -46,20 +63,18 @@ class SiginInUp extends StatelessWidget {
                   onPrimary: Colors.black, // foreground
                 ),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginView()));
+                  Navigator.of(context).push(_createRoute());
                 },
                 child: Text(
                   'Sign in',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 22,
+                      fontSize: 21,
                       color: Theme.of(context).primaryColor),
                 ),
               ),
-            )),
-            Center(
-                child: SizedBox(
+            ),
+            SizedBox(
               width: 120,
               height: 50,
               child: ElevatedButton(
@@ -78,12 +93,12 @@ class SiginInUp extends StatelessWidget {
                 child: Text(
                   'Sign Up',
                   style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22,
-                      color: Colors.white),
+                      fontSize: 21,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600),
                 ),
               ),
-            )),
+            ),
             SizedBox(
               height: 10,
             )

@@ -9,6 +9,23 @@ class LoginView extends StatefulWidget {
 bool _issecured = true;
 GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 String _email, _password;
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => LoginSuccessfull(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      var begin = Offset(1.0, 0.0);
+      var end = Offset.zero;
+      var curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
 
 class _LoginViewState extends State<LoginView> {
   Widget textField({
@@ -183,8 +200,8 @@ class _LoginViewState extends State<LoginView> {
           ),
           Center(
               child: SizedBox(
-            width: 100,
-            height: 45,
+            width: 120,
+            height: 50,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
@@ -196,17 +213,17 @@ class _LoginViewState extends State<LoginView> {
               onPressed: () {
                 _submitForm();
                 if (_formkey.currentState.validate()) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => LoginSuccessfull()));
+                  Navigator.of(context).push(_createRoute());
                 }
 
                 print("$_email $_password");
               },
               child: Text(
                 'sign in',
-                style: TextStyle(color: Colors.white, fontSize: 18),
+                style: TextStyle(
+                    fontSize: 21,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600),
               ),
             ),
           )),

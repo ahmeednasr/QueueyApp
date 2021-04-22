@@ -50,10 +50,14 @@ class _ItDoctorsState extends State<ItDoctors> {
                     SizedBox(
                       width: 20,
                     ),
-                    Text(
-                      _doctorsNames[index],
-                      style: TextStyle(fontSize: 20),
-                      softWrap: true,
+                    Flexible(
+                      child: Text(
+                        _doctorsNames[index],
+                        maxLines: 1,
+                        style: TextStyle(fontSize: 20),
+                        softWrap: true,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     )
                   ],
                 ),

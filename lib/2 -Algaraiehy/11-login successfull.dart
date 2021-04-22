@@ -2,6 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:queuey/3%20-Nasr/11-book%20Q%20now.dart';
 
 class LoginSuccessfull extends StatelessWidget {
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => BookQNow(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var begin = Offset(1.0, 0.0);
+        var end = Offset.zero;
+        var curve = Curves.ease;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,15 +87,11 @@ class LoginSuccessfull extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => BookQNow()));
+                  Navigator.of(context).push(_createRoute());
                 },
                 child: Text(
                   'Continue',
-                  style: TextStyle(
-                    fontSize: 20,
-                    //   fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
                 style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).primaryColor,
