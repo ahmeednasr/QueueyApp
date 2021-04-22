@@ -49,7 +49,7 @@ class _CollegesState extends State<Colleges> {
                     _nimoContainer(
                         image: 'assets/images/Screens/13-Colleges/2.png',
                         ontap: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => SelectService()));

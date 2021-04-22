@@ -49,7 +49,7 @@ class LoginSuccessfull extends StatelessWidget {
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,
                   fontSize: 24,
-                  fontWeight: FontWeight.bold,
+                  //   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
@@ -60,7 +60,7 @@ class LoginSuccessfull extends StatelessWidget {
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,
                   fontSize: 24,
-                  fontWeight: FontWeight.bold,
+                  //fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
@@ -75,7 +75,7 @@ class LoginSuccessfull extends StatelessWidget {
                   'Continue',
                   style: TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                    //   fontWeight: FontWeight.bold,
                   ),
                 ),
                 style: ElevatedButton.styleFrom(

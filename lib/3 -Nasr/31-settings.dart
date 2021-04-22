@@ -41,9 +41,17 @@ class _SettingState extends State<Setting> {
         elevation: 1,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios_rounded,
+            color: Colors.black,
+            size: 25,
+          ),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
         title: Row(
           children: [
-            Container(
+            /*Container(
               padding: EdgeInsets.all(10),
               height: 50,
               width: 50,
@@ -52,7 +60,7 @@ class _SettingState extends State<Setting> {
               ),
               child:
                   Image(image: AssetImage('assets/images/MyAppBar/list.png')),
-            ),
+            ),*/
             Text(
               'Settings',
               style: TextStyle(

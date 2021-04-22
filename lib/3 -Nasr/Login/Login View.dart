@@ -182,28 +182,32 @@ class _LoginViewState extends State<LoginView> {
             height: 20,
           ),
           Center(
-              child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(7),
+              child: SizedBox(
+            width: 100,
+            height: 45,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(7),
+                ),
+                primary: Theme.of(context).primaryColor, // background
+                onPrimary: Colors.black, // foreground
               ),
-              primary: Theme.of(context).primaryColor, // background
-              onPrimary: Colors.black, // foreground
-            ),
-            onPressed: () {
-              _submitForm();
-              if (_formkey.currentState.validate()) {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => LoginSuccessfull()));
-              }
+              onPressed: () {
+                _submitForm();
+                if (_formkey.currentState.validate()) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LoginSuccessfull()));
+                }
 
-              print("$_email $_password");
-            },
-            child: Text(
-              'sign in',
-              style: TextStyle(color: Colors.white, fontSize: 18),
+                print("$_email $_password");
+              },
+              child: Text(
+                'sign in',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
             ),
           )),
           SizedBox(

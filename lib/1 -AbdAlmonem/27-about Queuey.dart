@@ -20,16 +20,16 @@ class AboutQueuey extends StatelessWidget {
               title,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 20,
+                fontSize: 18,
                 color: Theme.of(context).primaryColor,
               ),
             ),
             Text(
               content,
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.left,
               style: TextStyle(
                   fontWeight: FontWeight.normal,
-                  fontSize: 18,
+                  fontSize: 17,
                   color: Colors.black),
             ),
             SizedBox(
@@ -58,7 +58,7 @@ class AboutQueuey extends StatelessWidget {
               "About QueueY",
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 30,
+                  fontSize: 27,
                   fontWeight: FontWeight.bold),
             ),
           ),

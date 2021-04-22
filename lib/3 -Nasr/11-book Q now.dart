@@ -32,7 +32,7 @@ class _BookQNowState extends State<BookQNow> {
               style: TextStyle(
                 color: Theme.of(context).primaryColor,
                 fontStyle: FontStyle.italic,
-                fontSize: 48,
+                fontSize: 40,
               ),
             ),
           ),
@@ -101,14 +101,14 @@ class _BookQNowState extends State<BookQNow> {
               Text(
                 'QueueY',
                 style: TextStyle(
-                    fontSize: 17,
+                    fontSize: 16,
                     color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold),
               ),
               FittedBox(
                 fit: BoxFit.fitWidth,
                 child: Text(
-                  ' to avoid all of that .. ',
+                  ' to avoid all of that ..',
                   style: TextStyle(
                       //  fontSize: 17,
                       ),
@@ -137,7 +137,7 @@ class _BookQNowState extends State<BookQNow> {
               child: Text(
                 'Book your Queue Now!',
                 style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 24,
                     //fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),

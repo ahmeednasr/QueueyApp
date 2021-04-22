@@ -15,7 +15,7 @@ class _LocationScreenState extends State<LocationScreen> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
           ),
-          backgroundColor: Color(0xfffff3cc),
+          backgroundColor: Color(0xffFFFAEB),
           title: Image(
             image: AssetImage('assets/images/Popup/1.png'),
           ),
@@ -29,12 +29,15 @@ class _LocationScreenState extends State<LocationScreen> {
                       style: TextStyle(
                           color: Colors.green, fontWeight: FontWeight.bold),
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Text('You booked a slot at .... on ...',
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     Text('Successfully',
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -74,19 +77,22 @@ class _LocationScreenState extends State<LocationScreen> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
           ),
-          backgroundColor: Color(0xfffff3cc),
+          backgroundColor: Color(0xffFFFAEB),
           title: Image(
             image: AssetImage('assets/images/Popup/0.png'),
           ),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
+                SizedBox(
+                  height: 20,
+                ),
                 Center(
                   child: Text("Slot doesn't booked",
                       style: TextStyle(fontWeight: FontWeight.bold)),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 50,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,7 +112,7 @@ class _LocationScreenState extends State<LocationScreen> {
                         child: Text(
                           'Try again',
                           style:
-                              TextStyle(fontSize: 20, color: Color(0xfffff3cc)),
+                              TextStyle(fontSize: 20, color: Color(0xffFFFAEB)),
                         ),
                       ),
                     ),
@@ -116,7 +122,7 @@ class _LocationScreenState extends State<LocationScreen> {
                             width: 1.5,
                             color: Color(0xffFF7A6B),
                           ),
-                          primary: Color(0xfffff3cc), // background
+                          primary: Color(0xffFFFAEB), // background
                           onPrimary: Colors.black, // foreground
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),

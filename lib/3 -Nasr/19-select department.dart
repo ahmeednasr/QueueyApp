@@ -75,7 +75,7 @@ class _SelectDepartmentState extends State<SelectDepartment> {
                             color: Colors.grey[200]),
                         child: InkWell(
                           onTap: () {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>

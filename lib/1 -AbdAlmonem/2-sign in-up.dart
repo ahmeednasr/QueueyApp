@@ -31,8 +31,8 @@ class SiginInUp extends StatelessWidget {
             ),
             Center(
                 child: SizedBox(
-              width: 140,
-              height: 55,
+              width: 120,
+              height: 50,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -53,15 +53,15 @@ class SiginInUp extends StatelessWidget {
                   'Sign in',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 24,
+                      fontSize: 22,
                       color: Theme.of(context).primaryColor),
                 ),
               ),
             )),
             Center(
                 child: SizedBox(
-              width: 140,
-              height: 55,
+              width: 120,
+              height: 50,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -79,7 +79,7 @@ class SiginInUp extends StatelessWidget {
                   'Sign Up',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 24,
+                      fontSize: 22,
                       color: Colors.white),
                 ),
               ),

@@ -104,8 +104,8 @@ class ReportaProblem extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: Center(
                 child: SizedBox(
-              width: 130,
-              height: 50,
+              width: 110,
+              height: 45,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -122,7 +122,7 @@ class ReportaProblem extends StatelessWidget {
                   'Report',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 21,
+                      fontSize: 19,
                       color: Colors.white),
                 ),
               ),
