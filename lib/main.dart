@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:queuey/SplashScreen.dart';
-
+import '2 -Algaraiehy/10-verification/10-verification View.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xff40A3A3),
         fontFamily: 'OpenSans',
       ),
-      home: SplashScreen(),
+      home: VerificationView(),
     );
   }
 }
