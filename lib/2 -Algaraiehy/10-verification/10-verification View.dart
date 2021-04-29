@@ -137,14 +137,12 @@ class _VerificationViewState extends State<VerificationView> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Expanded(
-                            child: Text(
-                              "If you didn't recieve the code...!",
-                              maxLines: 2,
-                              style: TextStyle(
-                                fontSize: 17,
-                                color: Color(0xff3F3F3F),
-                              ),
+                          Text(
+                            "If you didn't recieve the code...! ",
+                            maxLines: 2,
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Color(0xff3F3F3F),
                             ),
                           ),
                           InkWell(
@@ -160,7 +158,7 @@ class _VerificationViewState extends State<VerificationView> {
                           ),
                         ],
                       ),
-                    ), 
+                    ),
                   ],
                 ), //Column
               ), //Container

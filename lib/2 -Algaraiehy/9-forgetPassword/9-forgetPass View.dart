@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ForgetPassword extends StatefulWidget {
   @override
@@ -12,6 +13,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: TextFormField(
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(20),
+        ],
         onSaved: onSave,
         keyboardType: TextInputType.text,
         validator: validate,
