@@ -122,14 +122,98 @@ class _YourBookedViewState extends State<YourBookedView> {
                   color: Colors.red,
                 ),
                 onPressed: () {
-                  setState(() {
-                    _list.removeAt(index);
-                    // List.removeAt(int index)
-                  });
+                  _removeItemDialog(index);
                 })
           ],
         ),
       ),
+    );
+  }
+
+  _removeItemDialog(index) {
+    return showDialog(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+          backgroundColor: Colors.white,
+          title: Center(
+            child: Column(
+              children: [
+                Text(
+                  'Are you sure to remove ',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: Color(0xff346161),
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  '"${_list[index]['title']}"',
+                  style: TextStyle(
+                    color: Color(0xffC69F22),
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.red, // background
+                          onPrimary: Colors.black, // foreground
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                      onPressed: () {
+                        setState(() {
+                          _list.removeAt(index);
+                          // List.removeAt(int index)
+                        });
+                        Navigator.of(context).pop();
+                      },
+                      child: Text(
+                        'Yes',
+                        style: TextStyle(fontSize: 17, color: Colors.white),
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.green, // background
+                          onPrimary: Colors.black, // foreground
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text(
+                        'No',
+                        style: TextStyle(fontSize: 17, color: Colors.white),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
