@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/3%20-Nasr/11-book%20Q%20now.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class BookSlitView extends StatefulWidget {
@@ -8,7 +7,7 @@ class BookSlitView extends StatefulWidget {
 }
 
 class _BookSlitViewState extends State<BookSlitView> {
-  List<Map> _times = [
+  /* List<Map> _times = [
     {
       'name': 'sat \n14 Mar',
       'time': [
@@ -75,7 +74,7 @@ class _BookSlitViewState extends State<BookSlitView> {
         '9-9:30',
       ]
     },
-  ];
+  ];*/
 
   List<String> _time = [
     '8-8:30',
@@ -85,6 +84,7 @@ class _BookSlitViewState extends State<BookSlitView> {
     '9-9:30',
     '9-9:30',
   ];
+  /*
   _day({String name}) {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
@@ -120,7 +120,7 @@ class _BookSlitViewState extends State<BookSlitView> {
         ),
       ),
     );
-  }
+  }*/
 
   Widget _getColumnTime(List<String> yourList) {
     return Row(
