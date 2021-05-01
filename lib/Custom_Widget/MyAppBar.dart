@@ -1,11 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:queuey/3%20-Nasr/31-settings.dart';
+import 'package:queuey/3%20-Nasr/Profile/Profile%20View.dart';
 
 Route _createRoute() {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => Setting(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       var begin = Offset(-1, 0); //Offset(1.0, 0.0);
+      var end = Offset.zero;
+      var curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
+
+Route _profileRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => ProfileView(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      var begin = Offset(1, -1); //Offset(1.0, 0.0);
       var end = Offset.zero;
       var curve = Curves.ease;
 
@@ -54,12 +73,9 @@ class MyAppBar extends AppBar {
                       Image(image: AssetImage('assets/images/Queue-amico.png')),
                 ),
                 InkWell(
-                  /*onTap: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => screen()));
-              },*/
+                  onTap: () {
+                    Navigator.of(context).push(_profileRoute());
+                  },
                   child: Container(
                     height: 40,
                     width: 40,
