@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:queuey/2%20-Algaraiehy/12-home.dart';
 import 'package:queuey/2%20-Algaraiehy/26%20more%20option.dart';
 import 'package:queuey/2%20-Algaraiehy/LocationScreen.dart';
-
-import 'package:queuey/Booked%20queues/BookedQueuesVeiw.dart';
+import 'package:queuey/3%20-Nasr/Your%20Booked%20queues/Your%20Booked%20View.dart';
 
 class NavBar extends StatefulWidget {
   @override
@@ -105,7 +104,7 @@ class _NavBarState extends State<NavBar> {
       '/': (context) {
         return [
           HomeScreen(),
-          BookedQueuesVeiw(),
+          YourBookedView(),
           LocationScreen(),
           MoreOption(),
         ].elementAt(index);
