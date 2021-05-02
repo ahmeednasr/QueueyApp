@@ -1,1 +1,1 @@
-// class RegistrationUserModel {}
+class RegistrationUserModel {}

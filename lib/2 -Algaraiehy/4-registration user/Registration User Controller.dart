@@ -1,1 +1,1 @@
-// class RegistrationUserController {}
+class RegistrationUserController {}
