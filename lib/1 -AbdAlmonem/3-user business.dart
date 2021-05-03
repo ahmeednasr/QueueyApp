@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:queuey/2%20-Algaraiehy/4-registration%20user/Registration%20User%20View.dart';
+import 'package:queuey/2 -Algaraiehy/6-RegistrationBusiness/6-RegistBusinessView.dart';
 class UserBusiness extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,10 @@ class UserBusiness extends StatelessWidget {
                   onPrimary: Colors.black, // foreground
                 ),
                 onPressed: () {
-                  //User registration screennnnnnnnnnnnnnnnnn
+                  Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RegistrationUserView()));
                 },
                 child: Text(
                   'User',
@@ -78,7 +82,10 @@ class UserBusiness extends StatelessWidget {
                   onPrimary: Colors.black, // foreground
                 ),
                 onPressed: () {
-                  //Business registration screennnnnnnnnnnnnnnnnn
+                  Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RegistBusinessView()));
                 },
                 child: Text(
                   'Business',
