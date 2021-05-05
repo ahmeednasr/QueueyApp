@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:queuey/2%20-Algaraiehy/5-congrats.dart';
 
 class RegistrationUserView extends StatefulWidget {
   @override
@@ -176,8 +177,8 @@ class _RegistrationUserViewState extends State<RegistrationUserView> {
                   secure: _issecured,
                   validator: (value) {
                     if (value.toString().isEmpty ||
-                        value.toString().length < 8) {
-                      return 'password is required and more than 8 characters';
+                        value.toString().length < 10) {
+                      return 'password is required and more than 10 characters';
                     } else {
                       return null;
                     }
@@ -205,8 +206,8 @@ class _RegistrationUserViewState extends State<RegistrationUserView> {
                   secure: _issecured,
                   validator: (value) {
                     if (value.toString().isEmpty ||
-                        value.toString().length < 8) {
-                      return 'confirmation password is required and more than 8 characters';
+                        value.toString().length < 10) {
+                      return 'confirmation password is required and more than 10 characters';
                     }
                     if (_confirmpassword != _password) {
                       return 'confirmation password does not matched';
@@ -239,9 +240,12 @@ class _RegistrationUserViewState extends State<RegistrationUserView> {
               onPressed: () {
                 _submitForm();
                 if (_formkey.currentState.validate()) {
-                  return;
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Congrats()));
+                } else {
+                  _formkey.currentState.save();
+                  print('$_name $_email $_phone $_password $_confirmpassword');
                 }
-                _formkey.currentState.save();
               },
               child: Text(
                 'Sign Up',

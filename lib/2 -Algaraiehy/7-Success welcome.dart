@@ -1,6 +1,22 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 
-class SuccessWelcome extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:queuey/3%20-Nasr/Login/Login%20View.dart';
+
+class SuccessWelcome extends StatefulWidget {
+  
+  @override
+  _SuccessWelcomeState createState() => _SuccessWelcomeState();
+}
+
+class _SuccessWelcomeState extends State<SuccessWelcome> {
+  void initState() {
+    Timer(Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => LoginView()));
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,5 +83,4 @@ class SuccessWelcome extends StatelessWidget {
         ],
       ), //Container
     ); //Scaffold
-  } //build
-} //SuccessWelcome
+  } } //SuccessWelcome

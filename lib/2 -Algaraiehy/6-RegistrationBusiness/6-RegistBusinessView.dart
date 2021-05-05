@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:queuey/2%20-Algaraiehy/7-Success%20welcome.dart';
 
 class RegistBusinessView extends StatefulWidget {
   @override
@@ -7,7 +8,17 @@ class RegistBusinessView extends StatefulWidget {
 
 GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 // ignore: unused_element
-String _name, _title, _email, _phone, _businessName, _category, _businessPhone, _website, _businessEmail,_password, _confirmpassword;
+String _name,
+    _title,
+    _email,
+    _phone,
+    _businessName,
+    _category,
+    _businessPhone,
+    _website,
+    _businessEmail,
+    _password,
+    _confirmpassword;
 bool _issecured = true;
 
 class _RegistBusinessViewState extends State<RegistBusinessView> {
@@ -133,16 +144,16 @@ class _RegistBusinessViewState extends State<RegistBusinessView> {
                     });
                   },
                   hinttext: 'Title',
-                  prefixIcon:
-                      Icon(Icons.edit_outlined, color: Theme.of(context).primaryColor),
+                  prefixIcon: Icon(Icons.edit_outlined,
+                      color: Theme.of(context).primaryColor),
                   secure: false,
-                ),//_title
+                ), //_title
                 textField(
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
                     if (value.toString().isEmpty ||
                         value.toString().length < 10) {
-                      return "e-mail is required";
+                      return "e-mail is required and more than 10 characters";
                     } else if (!value.contains('@')) {
                       return 'e-mail is invalid!';
                     } else {
@@ -164,7 +175,7 @@ class _RegistBusinessViewState extends State<RegistBusinessView> {
                   validator: (value) {
                     if (value.toString().isEmpty ||
                         value.toString().length < 11) {
-                      return "phone number is required";
+                      return "phone number is required and more than 10 characters";
                     }
                     return null;
                   },
@@ -193,10 +204,10 @@ class _RegistBusinessViewState extends State<RegistBusinessView> {
                     });
                   },
                   hinttext: 'Business name',
-                  prefixIcon:
-                      Icon(Icons.edit_outlined, color: Theme.of(context).primaryColor),
+                  prefixIcon: Icon(Icons.edit_outlined,
+                      color: Theme.of(context).primaryColor),
                   secure: false,
-                ),//_businessName
+                ), //_businessName
                 textField(
                   keyboardType: TextInputType.text,
                   validator: (value) {
@@ -212,8 +223,8 @@ class _RegistBusinessViewState extends State<RegistBusinessView> {
                     });
                   },
                   hinttext: 'Business category',
-                  prefixIcon:
-                      Icon(Icons.edit_outlined, color: Theme.of(context).primaryColor),
+                  prefixIcon: Icon(Icons.edit_outlined,
+                      color: Theme.of(context).primaryColor),
                   secure: false,
                 ), //_category
                 textField(
@@ -221,7 +232,7 @@ class _RegistBusinessViewState extends State<RegistBusinessView> {
                   validator: (value) {
                     if (value.toString().isEmpty ||
                         value.toString().length < 11) {
-                      return "business phone is required";
+                      return "business phone is required and more than 10 numbers";
                     }
                     return null;
                   },
@@ -234,7 +245,7 @@ class _RegistBusinessViewState extends State<RegistBusinessView> {
                   prefixIcon:
                       Icon(Icons.phone, color: Theme.of(context).primaryColor),
                   secure: false,
-                ),//Business phone
+                ), //Business phone
                 textField(
                   keyboardType: TextInputType.url,
                   validator: (value) {
@@ -249,7 +260,7 @@ class _RegistBusinessViewState extends State<RegistBusinessView> {
                   prefixIcon:
                       Icon(Icons.link, color: Theme.of(context).primaryColor),
                   secure: false,
-                ),//_website
+                ), //_website
                 textField(
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
@@ -289,8 +300,8 @@ class _RegistBusinessViewState extends State<RegistBusinessView> {
                   secure: _issecured,
                   validator: (value) {
                     if (value.toString().isEmpty ||
-                        value.toString().length < 8) {
-                      return 'password is required and more than 8 characters';
+                        value.toString().length < 10) {
+                      return 'password is required and more than 10 characters';
                     } else {
                       return null;
                     }
@@ -318,8 +329,8 @@ class _RegistBusinessViewState extends State<RegistBusinessView> {
                   secure: _issecured,
                   validator: (value) {
                     if (value.toString().isEmpty ||
-                        value.toString().length < 8) {
-                      return 'confirmation password is required and more than 8 characters';
+                        value.toString().length < 10) {
+                      return 'confirmation password is required and more than 10 characters';
                     }
                     if (_confirmpassword != _password) {
                       return 'confirmation password does not matched';
@@ -352,9 +363,13 @@ class _RegistBusinessViewState extends State<RegistBusinessView> {
               onPressed: () {
                 _submitForm();
                 if (_formkey.currentState.validate()) {
-                  return;
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SuccessWelcome()));
+                } else {
+                  _formkey.currentState.save();
+                  print(
+                      '$_name,$_title,$_email,$_phone,$_businessName,$_category,$_businessPhone,$_website,$_businessEmail,$_password,$_confirmpassword');
                 }
-                _formkey.currentState.save();
               },
               child: Text(
                 'Register',
