@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../31-settings.dart';
 
@@ -25,7 +29,147 @@ class ProfileView extends StatefulWidget {
   _ProfileViewState createState() => _ProfileViewState();
 }
 
+PickedFile _imageFile;
+imageFunction() {
+  return _imageFile;
+}
+
 class _ProfileViewState extends State<ProfileView> {
+  _card({
+    IconData icon,
+    String name,
+  }) {
+    return Container(
+      height: 50,
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        children: [
+          Icon(
+            icon,
+            color: Theme.of(context).primaryColor,
+            size: 30,
+          ),
+          SizedBox(
+            width: 5,
+          ),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(width: 0.5, color: Colors.black54),
+                ),
+                color: Colors.white,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '$name',
+                    style: TextStyle(fontSize: 19),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _icon({int color, IconData icon, Function onPressed}) {
+    return Container(
+      height: 55,
+      width: 55,
+      decoration: BoxDecoration(color: Color(color), shape: BoxShape.circle),
+      child: Center(
+        child: IconButton(
+          icon: Icon(
+            icon,
+            color: Colors.white,
+            size: 30,
+          ),
+          onPressed: onPressed,
+        ),
+      ),
+    );
+  }
+
+  void _modalBottomSheetMenu() {
+    showModalBottomSheet(
+        context: context,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(25.0),
+                topRight: Radius.circular(25.0))),
+        builder: (builder) {
+          return Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            height: 180.0,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25.0),
+                    topRight: Radius.circular(25.0))),
+            child: Column(
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Profile Photo",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 50),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      _icon(
+                          color: 0xffE65454,
+                          icon: Icons.delete,
+                          onPressed: () {
+                            setState(() {
+                              _imageFile = null;
+                            });
+                          }),
+                      _icon(
+                          color: 0xffB47CB4,
+                          icon: CupertinoIcons.photo,
+                          onPressed: () {
+                            getImage(source: ImageSource.gallery);
+                          }),
+                      _icon(
+                          color: 0xffDBB436,
+                          icon: CupertinoIcons.camera_fill,
+                          onPressed: () {
+                            getImage(source: ImageSource.camera);
+                          }),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          );
+        });
+  }
+
+  imageFunction() {
+    return _imageFile;
+  }
+
+  final _picker = ImagePicker();
+
+  Future getImage({ImageSource source}) async {
+    final pickedFile = await _picker.getImage(source: source);
+
+    setState(() {
+      _imageFile = pickedFile;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +185,6 @@ class _ProfileViewState extends State<ProfileView> {
                 child: Container(
                   height: 50,
                   width: 50,
-                  //color: Colors.yellow,
                   padding: EdgeInsets.all(11),
                   child: Image(
                     image: AssetImage('assets/images/MyAppBar/list.png'),
@@ -51,8 +194,8 @@ class _ProfileViewState extends State<ProfileView> {
               ),
               Container(
                 padding: EdgeInsets.all(7),
-                height: 50,
-                width: 50,
+                height: 48,
+                width: 48,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(80),
                     color: Color.fromRGBO(50, 157, 156, .25)),
@@ -65,24 +208,33 @@ class _ProfileViewState extends State<ProfileView> {
         elevation: 0,
       ),
       backgroundColor: Colors.white,
-      body: Scrollbar(
-        child: ListView(
-          physics: BouncingScrollPhysics(),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Center(
               child: Container(
                 width: 125,
                 height: 125,
-                //  color: Theme.of(context).primaryColor,
                 child: Stack(
                   children: [
-                    Container(
+                    CircleAvatar(
+                      radius: 80.0,
+                      backgroundImage: _imageFile == null
+                          ? AssetImage('assets/images/MyAppBar/profile.png')
+                          : FileImage(File(_imageFile.path)),
+                    ),
+                    /*  Container(
                       height: 120,
                       width: 120,
+                      color: Colors.green,
                       child: Image(
-                          image:
-                              AssetImage('assets/images/MyAppBar/profile.png')),
-                    ),
+                        image: _imageFile == null
+                            ? AssetImage('assets/images/MyAppBar/profile.png')
+                            : FileImage(File(_imageFile.path)),
+                      ),
+                    ),*/
                     Align(
                       alignment: Alignment.bottomRight,
                       child: Container(
@@ -97,12 +249,90 @@ class _ProfileViewState extends State<ProfileView> {
                                 color: Colors.white,
                                 size: 25,
                               ),
-                              onPressed: () {})),
+                              onPressed: () {
+                                _modalBottomSheetMenu();
+                              })),
                     ),
                   ],
                 ),
               ),
             ),
+            Column(
+              children: [
+                Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.person,
+                        color: Theme.of(context).primaryColor,
+                        size: 30,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom:
+                                  BorderSide(width: 0.5, color: Colors.black54),
+                            ),
+                            color: Colors.white,
+                          ),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Name',
+                                  style: TextStyle(fontSize: 19),
+                                ),
+                                Icon(
+                                  Icons.create_outlined,
+                                  color: Colors.grey[700],
+                                  size: 22,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                _card(
+                  icon: CupertinoIcons.phone_fill,
+                  name: 'Phone',
+                ),
+                _card(
+                  icon: CupertinoIcons.mail,
+                  name: 'Mail',
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: _card(
+                    icon: CupertinoIcons.lock_fill,
+                    name: 'Change Password',
+                  ),
+                )
+              ],
+            ),
+            Column(
+              children: [
+                Text('Powered By',
+                    style:
+                        TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
+                Text('QueueY',
+                    style: TextStyle(
+                      fontSize: 21,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).primaryColor,
+                    ))
+              ],
+            )
           ],
         ),
       ),

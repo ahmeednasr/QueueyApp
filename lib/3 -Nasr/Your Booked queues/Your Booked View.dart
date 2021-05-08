@@ -50,12 +50,6 @@ class _YourBookedViewState extends State<YourBookedView> {
       'date': '21 Mar',
       'time': '8:30 AM - 9 AM'
     },
-    {
-      'title': 'رايحه بينا فين',
-      'day': 'ماشيه بينا كام, ',
-      'date': '21 Mar',
-      'time': '8:30 AM - 9 AM'
-    },
   ];
   _card({String title, String day, String date, String time, int index}) {
     return Padding(

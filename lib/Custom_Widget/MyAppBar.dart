@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:queuey/3%20-Nasr/31-settings.dart';
-import 'package:queuey/3%20-Nasr/Profile/Profile%20View.dart';
+import 'package:queuey/3%20-Nasr/Profile/Profile%20View.dart' as profileView;
 
 Route _createRoute() {
   return PageRouteBuilder(
@@ -22,9 +24,10 @@ Route _createRoute() {
 
 Route _profileRoute() {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => ProfileView(),
+    pageBuilder: (context, animation, secondaryAnimation) =>
+        profileView.ProfileView(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      var begin = Offset(1, -1); //Offset(1.0, 0.0);
+      var begin = Offset(1, 0); //Offset(1.0, 0.0);
       var end = Offset.zero;
       var curve = Curves.ease;
 
@@ -76,12 +79,11 @@ class MyAppBar extends AppBar {
                   onTap: () {
                     Navigator.of(context).push(_profileRoute());
                   },
-                  child: Container(
-                    height: 40,
-                    width: 40,
-                    child: Image(
-                        image:
-                            AssetImage('assets/images/MyAppBar/profile.png')),
+                  child: CircleAvatar(
+                    radius: 25.0,
+                    backgroundImage: profileView.imageFunction() == null
+                        ? AssetImage('assets/images/MyAppBar/profile.png')
+                        : FileImage(File(profileView.imageFunction().path)),
                   ),
                 ),
               ]),
