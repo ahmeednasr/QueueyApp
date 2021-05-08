@@ -80,11 +80,10 @@ class MyAppBar extends AppBar {
                     Navigator.of(context).push(_profileRoute());
                   },
                   child: CircleAvatar(
-                    radius: 25.0,
-                    backgroundImage: profileView.imageFunction() == null
-                        ? AssetImage('assets/images/MyAppBar/profile.png')
-                        : FileImage(File(profileView.imageFunction().path)),
-                  ),
+                      radius: 25.0,
+                      backgroundImage: profileView.imageFunction() == null
+                          ? AssetImage('assets/images/MyAppBar/profile.png')
+                          : FileImage(File(profileView.imageFunction().path))),
                 ),
               ]),
           actions: <Widget>[],
@@ -93,3 +92,71 @@ class MyAppBar extends AppBar {
           elevation: 0,
         );
 }
+/*class MyAppBarr extends StatefulWidget implements PreferredSizeWidget {
+  @override
+  final Size preferredSize;
+
+  MyAppBarr({
+    Key key,
+  })  : preferredSize = Size.fromHeight(120.0),
+        super(key: key);
+  _MyAppBarrState createState() => _MyAppBarrState();
+}
+
+class _MyAppBarrState extends State<MyAppBarr> {
+  @override
+  void initState() {
+    profileView.imageFunction();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      toolbarHeight: 120,
+      title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(_createRoute());
+              },
+              child: Container(
+                height: 50,
+                width: 50,
+                //color: Colors.yellow,
+                padding: EdgeInsets.all(11),
+                child: Image(
+                  image: AssetImage('assets/images/MyAppBar/list.png'),
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(7),
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(80),
+                  color: Color.fromRGBO(50, 157, 156, .25)),
+              child: Image(image: AssetImage('assets/images/Queue-amico.png')),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(_profileRoute());
+              },
+              child: CircleAvatar(
+                  radius: 25.0,
+                  backgroundImage: profileView.imageFunction() == null
+                      ? AssetImage('assets/images/MyAppBar/profile.png')
+                      : FileImage(File(profileView.imageFunction().path))),
+            ),
+          ]),
+      actions: <Widget>[],
+      backgroundColor: Colors.white,
+      automaticallyImplyLeading: false,
+      elevation: 0,
+    );
+  }
+}*/
