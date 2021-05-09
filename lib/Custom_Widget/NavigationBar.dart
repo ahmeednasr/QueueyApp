@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:queuey/2%20-Algaraiehy/12-home.dart';
 import 'package:queuey/2%20-Algaraiehy/26%20more%20option.dart';
@@ -44,8 +45,8 @@ class _NavBarState extends State<NavBar> {
               BottomNavigationBarItem(
                 //index = 0
                 icon: Icon(
-                  Icons.home_outlined,
-                  size: 38,
+                  Icons.home,
+                  size: 30,
                 ),
                 // ignore: deprecated_member_use
                 title: Text(
@@ -56,8 +57,8 @@ class _NavBarState extends State<NavBar> {
               BottomNavigationBarItem(
                   //index = 1
                   icon: Icon(
-                    Icons.notifications_none,
-                    size: 38,
+                    CupertinoIcons.app_badge,
+                    size: 30,
                   ),
                   // ignore: deprecated_member_use
                   title: Text(
@@ -67,8 +68,8 @@ class _NavBarState extends State<NavBar> {
               BottomNavigationBarItem(
                   //index = 2
                   icon: Icon(
-                    Icons.location_on_outlined,
-                    size: 38,
+                    CupertinoIcons.location_solid,
+                    size: 30,
                   ),
                   // ignore: deprecated_member_use
                   title: Text(
@@ -78,8 +79,8 @@ class _NavBarState extends State<NavBar> {
               BottomNavigationBarItem(
                   //index = 3
                   icon: Icon(
-                    Icons.more_vert,
-                    size: 38,
+                    CupertinoIcons.ellipsis_vertical,
+                    size: 30,
                   ),
                   // ignore: deprecated_member_use
                   title: Text(

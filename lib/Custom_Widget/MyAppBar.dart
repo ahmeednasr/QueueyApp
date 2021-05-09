@@ -80,7 +80,7 @@ class MyAppBar extends AppBar {
                     Navigator.of(context).push(_profileRoute());
                   },
                   child: CircleAvatar(
-                      radius: 25.0,
+                      radius: 21.0,
                       backgroundImage: profileView.imageFunction() == null
                           ? AssetImage('assets/images/MyAppBar/profile.png')
                           : FileImage(File(profileView.imageFunction().path))),
