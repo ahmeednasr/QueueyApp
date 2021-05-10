@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/2%20-Algaraiehy/5-congrats.dart';
+import 'package:queuey/2%20-Algaraiehy/4-registration%20user/Registration%20User%20Controller.dart';
+import 'package:queuey/2%20-Algaraiehy/4-registration%20user/Registration%20User%20Model.dart';
 
 class RegistrationUserView extends StatefulWidget {
   @override
@@ -9,6 +10,8 @@ class RegistrationUserView extends StatefulWidget {
 GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 // ignore: unused_element
 String _name, _email, _phone, _password, _confirmpassword;
+
+RegistrationUserController _controller = new RegistrationUserController();
 bool _issecured = true;
 
 class _RegistrationUserViewState extends State<RegistrationUserView> {
@@ -61,11 +64,19 @@ class _RegistrationUserViewState extends State<RegistrationUserView> {
     );
   }
 
-  _submitForm() {
+  RegistrationUserModel _model = new RegistrationUserModel();
+  _submitForm() async {
     if (!_formkey.currentState.validate()) {
       return;
     } else {
       _formkey.currentState.save();
+      _model = await _controller.registrationUser(
+        fullName: _name,
+        email: _email,
+        phone: _phone,
+        password: _password,
+      );
+      print(_model.user.email);
     }
   }
 
@@ -239,12 +250,13 @@ class _RegistrationUserViewState extends State<RegistrationUserView> {
               ),
               onPressed: () {
                 _submitForm();
-                if (_formkey.currentState.validate()) {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Congrats()));
+                if (_controller.getStatus() == 200) {
+                  final snackBar = SnackBar(content: Text('congraulation'));
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 } else {
-                  _formkey.currentState.save();
-                  print('$_name $_email $_phone $_password $_confirmpassword');
+                  final snackBar = SnackBar(
+                      content: Text('Erorr try another email or phone number'));
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 }
               },
               child: Text(

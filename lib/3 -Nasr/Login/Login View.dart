@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:queuey/2%20-Algaraiehy/11-login%20successfull.dart';
+import 'package:queuey/3%20-Nasr/Login/Login%20Controller.dart';
+import 'package:queuey/3%20-Nasr/Login/Login%20Model.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -28,7 +30,7 @@ Route _createRoute() {
 }
 
 class _LoginViewState extends State<LoginView> {
-  Widget textField({
+  Widget _textField({
     String hinttext,
     Widget prefixIcon,
     Function validator,
@@ -75,11 +77,98 @@ class _LoginViewState extends State<LoginView> {
     );
   }
 
-  _submitForm() {
+  _errorDialog() {
+    return showDialog(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            side: BorderSide(color: Colors.red),
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+          backgroundColor: Colors.white,
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Column(
+                  children: [
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Text(
+                      'OOPS!',
+                      style: TextStyle(
+                          color: Colors.red, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Some thing went wrong..\nlet's try again",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Color(0xff3F3F3F),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Color(0xffFF0000), // background
+                          onPrimary: Colors.black, // foreground
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 5, vertical: 7),
+                        child: Text(
+                          'Try Again',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  LoginController _controller = new LoginController();
+  LoginModel _model = new LoginModel();
+
+  var token;
+  bool _load = false;
+  _submitForm() async {
     if (!_formkey.currentState.validate()) {
       return;
     } else {
       _formkey.currentState.save();
+      setState(() {
+        _load = true;
+      });
+
+      _model = await _controller.login(email: _email, password: _password);
+      setState(() {
+        _load = false;
+      });
+      if (_model.errNum == "201") {
+        token = _model.token;
+        print(token);
+        Navigator.of(context).pushReplacement(_createRoute());
+      }
+      if (_model.errNum == "404") {
+        _errorDialog();
+      }
     }
   }
 
@@ -123,7 +212,7 @@ class _LoginViewState extends State<LoginView> {
             key: _formkey,
             child: Column(
               children: [
-                textField(
+                _textField(
                     validator: (value) {
                       if (value.toString().isEmpty ||
                           value.toString().length < 10) {
@@ -146,7 +235,7 @@ class _LoginViewState extends State<LoginView> {
                 SizedBox(
                   height: 20,
                 ),
-                textField(
+                _textField(
                     validator: (value) {
                       if (value.toString().isEmpty ||
                           value.toString().length < 10) {
@@ -200,8 +289,8 @@ class _LoginViewState extends State<LoginView> {
           ),
           Center(
               child: SizedBox(
-            width: 120,
-            height: 50,
+            width: 100,
+            height: 45,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
@@ -212,19 +301,22 @@ class _LoginViewState extends State<LoginView> {
               ),
               onPressed: () {
                 _submitForm();
-                if (_formkey.currentState.validate()) {
-                  Navigator.of(context).push(_createRoute());
-                }
-
-                print("$_email $_password");
               },
-              child: Text(
-                'sign in',
-                style: TextStyle(
-                    fontSize: 21,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600),
-              ),
+              child: _load
+                  ? SizedBox(
+                      height: 25,
+                      width: 25,
+                      child: CircularProgressIndicator(
+                        backgroundColor: Colors.white,
+                      ),
+                    )
+                  : Text(
+                      'sign in',
+                      style: TextStyle(
+                          fontSize: 21,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600),
+                    ),
             ),
           )),
           SizedBox(
@@ -237,7 +329,6 @@ class _LoginViewState extends State<LoginView> {
         height: 120,
         child: Center(
             child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
