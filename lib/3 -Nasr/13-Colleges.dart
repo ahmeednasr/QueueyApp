@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:queuey/2%20-Algaraiehy/14-select%20service.dart';
-import 'package:queuey/Custom_Widget/MyAppBar.dart';
-import 'package:queuey/Custom_Widget/NavigationBar.dart';
 
 class Colleges extends StatefulWidget {
   @override
@@ -30,9 +28,6 @@ class _CollegesState extends State<Colleges> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MyAppBar(
-        context: context,
-      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         child: Container(

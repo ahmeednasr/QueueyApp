@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class AboutQueuey extends StatelessWidget {
   _card({context, String title, String content}) {
@@ -44,9 +43,6 @@ class AboutQueuey extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        context: context,
-      ),
       backgroundColor: Colors.white,
       body: Column(
         children: [

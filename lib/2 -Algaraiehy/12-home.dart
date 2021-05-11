@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:queuey/1%20-AbdAlmonem/20.4%20Defult%20Screen.dart';
 import 'package:queuey/3%20-Nasr/13-Colleges.dart';
-import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

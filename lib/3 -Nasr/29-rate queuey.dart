@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class RateQueuey extends StatefulWidget {
   @override
@@ -12,9 +11,6 @@ class _RateQueueyState extends State<RateQueuey> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MyAppBar(
-        context: context,
-      ),
       body: Column(
         children: [
           Padding(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:queuey/2%20-Algaraiehy/25-Student%20Affairs/Student%20Affairs%20View.dart';
 import 'package:queuey/3%20-Nasr/19-select%20department.dart';
-import 'package:queuey/Custom_Widget/MyAppBar.dart';
 import 'package:queuey/2 -Algaraiehy/25-Student Affairs/Student Affairs View.dart';
 
 class SelectService extends StatelessWidget {
@@ -58,9 +57,6 @@ class SelectService extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MyAppBar(
-        context: context,
-      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30),
         child: Column(
@@ -158,9 +154,11 @@ class SelectService extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             // Navigator.of(context).push(StudentAffairsView());
-                            Navigator.push(context,
-                              MaterialPageRoute(
-                                  builder: (context) => StudentAffairsView()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        StudentAffairsView()));
                           },
                           child: _card(
                             image:

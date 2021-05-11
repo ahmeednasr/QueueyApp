@@ -3,7 +3,6 @@ import 'package:queuey/1%20-AbdAlmonem/27-about%20Queuey.dart';
 import 'package:queuey/1%20-AbdAlmonem/28-report%20a%20Problem.dart';
 import 'package:queuey/2%20-Algaraiehy/30-contact%20us.dart';
 import 'package:queuey/3%20-Nasr/29-rate%20queuey.dart';
-import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class MoreOption extends StatelessWidget {
   _card({String image, String name}) {

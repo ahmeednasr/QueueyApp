@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class ContactUs extends StatelessWidget {
   _myCard({IconData iconData, String text, context}) {
@@ -34,9 +33,6 @@ class ContactUs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MyAppBar(
-        context: context,
-      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: Column(

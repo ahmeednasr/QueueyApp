@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class ItDoctors extends StatefulWidget {
   @override
@@ -22,9 +21,6 @@ class _ItDoctorsState extends State<ItDoctors> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        context: context,
-      ),
       backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.only(top: 20),

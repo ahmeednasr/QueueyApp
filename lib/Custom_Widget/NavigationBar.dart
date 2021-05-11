@@ -13,22 +13,22 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _currentindex = 0;
-  /*List<GlobalKey<NavigatorState>> _navigatorKeys = [
+  List<GlobalKey<NavigatorState>> _navigatorKeys = [
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
-  ];*/
+  ];
 
-  List _screens = [
+  /* List _screens = [
     HomeScreen(),
     YourBookedView(),
     LocationScreen(),
     MoreOption(),
-  ];
+  ];*/
 
   @override
-  Widget build(BuildContext context) {
+  /* Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
         context: context,
@@ -95,9 +95,9 @@ class _NavBarState extends State<NavBar> {
       ),
       body: _screens[_currentindex],
     );
-  }
+  }*/
 
-/*  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
         final isFirstRouteInCurrentTab =
@@ -107,7 +107,9 @@ class _NavBarState extends State<NavBar> {
         return isFirstRouteInCurrentTab;
       },
       child: Scaffold(
-        
+          appBar: MyAppBar(
+            context: context,
+          ),
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: Color(0xff79BEBE),
             selectedItemColor: Colors.white,
@@ -206,5 +208,5 @@ class _NavBarState extends State<NavBar> {
         },
       ),
     );
-  }*/
+  }
 }
