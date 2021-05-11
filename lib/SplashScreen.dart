@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:queuey/Custom_Widget/NavigationBar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '1 -AbdAlmonem/2-sign in-up.dart';
 
@@ -10,13 +12,25 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  String _token;
   @override
   void initState() {
+    _checkCurrentUser();
     Timer(Duration(seconds: 2), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => SiginInUp()));
+      _token == null
+          ? Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => SiginInUp()))
+          : Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => NavBar()));
     });
     super.initState();
+  }
+
+  _checkCurrentUser() async {
+    SharedPreferences _prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _token = _prefs.getString('token');
+    });
   }
 
   Widget build(BuildContext context) {

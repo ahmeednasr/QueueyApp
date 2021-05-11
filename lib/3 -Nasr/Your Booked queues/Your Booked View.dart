@@ -215,9 +215,6 @@ class _YourBookedViewState extends State<YourBookedView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MyAppBar(
-        context: context,
-      ),
       body: Column(
         children: [
           Center(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:queuey/2%20-Algaraiehy/14-select%20service.dart';
 import 'package:queuey/Custom_Widget/MyAppBar.dart';
+import 'package:queuey/Custom_Widget/NavigationBar.dart';
 
 class Colleges extends StatefulWidget {
   @override

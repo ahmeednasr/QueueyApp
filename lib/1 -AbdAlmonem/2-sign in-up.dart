@@ -63,7 +63,7 @@ class SiginInUp extends StatelessWidget {
                   onPrimary: Colors.black, // foreground
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(_createRoute());
+                  Navigator.of(context).pushReplacement(_createRoute());
                 },
                 child: Text(
                   'Sign in',

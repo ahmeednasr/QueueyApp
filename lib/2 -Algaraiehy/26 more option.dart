@@ -44,9 +44,6 @@ class MoreOption extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MyAppBar(
-        context: context,
-      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

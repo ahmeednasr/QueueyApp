@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:queuey/3%20-Nasr/Profile/Profile%20View.dart';
+import 'package:queuey/SplashScreen.dart';
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Setting extends StatefulWidget {
   @override
@@ -33,6 +37,14 @@ class _SettingState extends State<Setting> {
     );
   }
 
+  _logOut() async {
+    SharedPreferences _prefs = await SharedPreferences.getInstance();
+    _prefs.clear();
+
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => SplashScreen()));
+  }
+
   bool isSwitched = false;
   @override
   Widget build(BuildContext context) {
@@ -51,16 +63,6 @@ class _SettingState extends State<Setting> {
         ),
         title: Row(
           children: [
-            /*Container(
-              padding: EdgeInsets.all(10),
-              height: 50,
-              width: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child:
-                  Image(image: AssetImage('assets/images/MyAppBar/list.png')),
-            ),*/
             Text(
               'Settings',
               style: TextStyle(
@@ -101,7 +103,10 @@ class _SettingState extends State<Setting> {
             _card(
                 image: 'assets/images/MyAppBar/profile.png',
                 title: 'Profile',
-                ontap: () {}),
+                ontap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ProfileView()));
+                }),
             _card(
                 image: 'assets/images/Screens/31-Settings/code.png',
                 title: 'Scan QR code',
@@ -160,7 +165,9 @@ class _SettingState extends State<Setting> {
             _card(
                 image: 'assets/images/Screens/31-Settings/logout.png',
                 title: 'Log Out',
-                ontap: () {}),
+                ontap: () {
+                  _logOut();
+                }),
             SizedBox(
               height: 15,
             ),

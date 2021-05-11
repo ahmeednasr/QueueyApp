@@ -87,7 +87,7 @@ class LoginSuccessfull extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(_createRoute());
+                  Navigator.of(context).pushReplacement(_createRoute());
                 },
                 child: Text(
                   'Continue',

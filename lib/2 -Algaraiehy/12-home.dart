@@ -46,9 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       //  backgroundColor: Colors.grey,
-      appBar: MyAppBar(
-        context: context,
-      ),
+
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(

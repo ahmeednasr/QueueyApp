@@ -4,6 +4,7 @@ import 'package:queuey/2%20-Algaraiehy/12-home.dart';
 import 'package:queuey/2%20-Algaraiehy/26%20more%20option.dart';
 import 'package:queuey/2%20-Algaraiehy/LocationScreen.dart';
 import 'package:queuey/3%20-Nasr/Your%20Booked%20queues/Your%20Booked%20View.dart';
+import 'package:queuey/Custom_Widget/MyAppBar.dart';
 
 class NavBar extends StatefulWidget {
   @override
@@ -12,14 +13,91 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _currentindex = 0;
-  List<GlobalKey<NavigatorState>> _navigatorKeys = [
+  /*List<GlobalKey<NavigatorState>> _navigatorKeys = [
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
+  ];*/
+
+  List _screens = [
+    HomeScreen(),
+    YourBookedView(),
+    LocationScreen(),
+    MoreOption(),
   ];
+
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MyAppBar(
+        context: context,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color(0xff79BEBE),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Color(0xff666666),
+        currentIndex: _currentindex,
+        type: BottomNavigationBarType.fixed,
+        onTap: (selectitem) {
+          setState(() {
+            _currentindex = selectitem;
+            print(_currentindex);
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            //index = 0
+            icon: Icon(
+              Icons.home,
+              size: 30,
+            ),
+            // ignore: deprecated_member_use
+            title: Text(
+              '',
+              style: TextStyle(fontSize: 0),
+            ),
+          ),
+          BottomNavigationBarItem(
+              //index = 1
+              icon: Icon(
+                CupertinoIcons.app_badge,
+                size: 30,
+              ),
+              // ignore: deprecated_member_use
+              title: Text(
+                '',
+                style: TextStyle(fontSize: 0),
+              )),
+          BottomNavigationBarItem(
+              //index = 2
+              icon: Icon(
+                CupertinoIcons.location_solid,
+                size: 30,
+              ),
+              // ignore: deprecated_member_use
+              title: Text(
+                '',
+                style: TextStyle(fontSize: 0),
+              )),
+          BottomNavigationBarItem(
+              //index = 3
+              icon: Icon(
+                CupertinoIcons.ellipsis_vertical,
+                size: 30,
+              ),
+              // ignore: deprecated_member_use
+              title: Text(
+                '',
+                style: TextStyle(fontSize: 0),
+              )),
+        ],
+      ),
+      body: _screens[_currentindex],
+    );
+  }
+
+/*  Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
         final isFirstRouteInCurrentTab =
@@ -29,6 +107,7 @@ class _NavBarState extends State<NavBar> {
         return isFirstRouteInCurrentTab;
       },
       child: Scaffold(
+        
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: Color(0xff79BEBE),
             selectedItemColor: Colors.white,
@@ -127,5 +206,5 @@ class _NavBarState extends State<NavBar> {
         },
       ),
     );
-  }
+  }*/
 }

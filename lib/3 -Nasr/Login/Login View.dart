@@ -148,7 +148,6 @@ class _LoginViewState extends State<LoginView> {
   LoginController _controller = new LoginController();
   LoginModel _model = new LoginModel();
 
-  var token;
   bool _load = false;
   _submitForm() async {
     if (!_formkey.currentState.validate()) {
@@ -164,8 +163,6 @@ class _LoginViewState extends State<LoginView> {
         _load = false;
       });
       if (_model.errNum == "201") {
-        token = _model.token;
-        print(token);
         Navigator.of(context).pushReplacement(_createRoute());
       }
       if (_model.errNum == "404") {

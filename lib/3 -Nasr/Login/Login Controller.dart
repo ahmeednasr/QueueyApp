@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:queuey/3%20-Nasr/Login/Login%20Model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginController {
   LoginModel _model = new LoginModel();
@@ -17,6 +18,8 @@ class LoginController {
         Map<String, dynamic> resp = json.decode(respons.toString());
         if (resp['errNum'] == '201') {
           _model = LoginModel.fromJson(resp);
+          SharedPreferences _prefs = await SharedPreferences.getInstance();
+          _prefs.setString('token', _model.token);
           return _model;
         }
         if (resp['errNum'] == '404') {
