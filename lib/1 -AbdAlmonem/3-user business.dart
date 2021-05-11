@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:queuey/2%20-Algaraiehy/4-registration%20user/Registration%20User%20View.dart';
 import 'package:queuey/2 -Algaraiehy/6-RegistrationBusiness/6-RegistBusinessView.dart';
+
 class UserBusiness extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -42,8 +43,8 @@ class UserBusiness extends StatelessWidget {
             ),
             Center(
                 child: SizedBox(
-              width: 150,
-              height: 55,
+              width: 130,
+              height: 45,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -55,9 +56,9 @@ class UserBusiness extends StatelessWidget {
                 ),
                 onPressed: () {
                   Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => RegistrationUserView()));
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RegistrationUserView()));
                 },
                 child: Text(
                   'User',
@@ -70,8 +71,8 @@ class UserBusiness extends StatelessWidget {
             )),
             Center(
                 child: SizedBox(
-              width: 150,
-              height: 55,
+              width: 130,
+              height: 45,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -83,9 +84,9 @@ class UserBusiness extends StatelessWidget {
                 ),
                 onPressed: () {
                   Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => RegistBusinessView()));
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RegistBusinessView()));
                 },
                 child: Text(
                   'Business',

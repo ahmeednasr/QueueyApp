@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:queuey/3%20-Nasr/11-book%20Q%20now.dart';
+import 'package:queuey/3%20-Nasr/Login/Login%20View.dart';
 
 class Congrats extends StatefulWidget {
   @override
@@ -12,7 +12,7 @@ class _CongratsState extends State<Congrats> {
   void initState() {
     Timer(Duration(seconds: 2), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => BookQNow()));
+          context, MaterialPageRoute(builder: (context) => LoginView()));
     });
     super.initState();
   }

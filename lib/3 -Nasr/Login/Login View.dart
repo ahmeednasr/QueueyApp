@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:queuey/1%20-AbdAlmonem/3-user%20business.dart';
 import 'package:queuey/2%20-Algaraiehy/11-login%20successfull.dart';
+import 'package:queuey/2%20-Algaraiehy/9-forgetPassword/9-forgetPass%20View.dart';
 import 'package:queuey/3%20-Nasr/Login/Login%20Controller.dart';
 import 'package:queuey/3%20-Nasr/Login/Login%20Model.dart';
 
@@ -274,13 +276,15 @@ class _LoginViewState extends State<LoginView> {
             ),
             child: InkWell(
               onTap: () {
-                /*Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Page()));*/
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ForgetPassword()));
               },
               child: Text(
                 'Forget password?',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.grey[700]),
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[700]),
               ),
             ),
           ),
@@ -354,8 +358,10 @@ class _LoginViewState extends State<LoginView> {
                     Text("click here "),
                     InkWell(
                       onTap: () {
-                        /* Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Screen()));*/
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => UserBusiness()));
                       },
                       child: Text(
                         "(create an account)",

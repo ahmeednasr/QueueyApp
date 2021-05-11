@@ -6,7 +6,6 @@ import 'package:queuey/2%20-Algaraiehy/4-registration%20user/Registration%20User
 class RegistrationUserController {
   RegistrationUserModel _registrationUserModel = new RegistrationUserModel();
   Dio _dio = new Dio();
-  var _res;
 
   Future registrationUser(
       {String fullName,
@@ -24,10 +23,10 @@ class RegistrationUserController {
     //real android -->>>> http://192.168.1.2:8000/api/user/register
     // emulator --->>>> http://10.0.2.2:8000/api/user/register
     try {
-      var respons = await _dio.post('http://192.168.1.2:8000/api/user/register',
+      var respons = await _dio.post('http://10.0.2.2:8000/api/user/register',
           data: _formData);
       print(respons.data);
-      _res = respons.statusCode;
+
       if (respons.statusCode == 200) {
         Map<String, dynamic> resp = json.decode(respons.toString());
         _registrationUserModel = RegistrationUserModel.fromJson(resp);
@@ -36,13 +35,12 @@ class RegistrationUserController {
       } else {
         return _registrationUserModel = null;
       }
-    } catch (e) {
-      print(e);
-      return _registrationUserModel = null;
+    } on DioError catch (e) {
+      if (e.response.statusCode == 500) {
+        return _registrationUserModel = null;
+      } else {
+        print(e.message);
+      }
     }
-  }
-
-  getStatus() {
-    return _res;
   }
 }

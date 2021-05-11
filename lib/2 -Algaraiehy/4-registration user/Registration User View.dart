@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:queuey/2%20-Algaraiehy/4-registration%20user/Registration%20User%20Controller.dart';
 import 'package:queuey/2%20-Algaraiehy/4-registration%20user/Registration%20User%20Model.dart';
+import 'package:queuey/2%20-Algaraiehy/5-congrats.dart';
 
 class RegistrationUserView extends StatefulWidget {
   @override
@@ -65,18 +66,33 @@ class _RegistrationUserViewState extends State<RegistrationUserView> {
   }
 
   RegistrationUserModel _model = new RegistrationUserModel();
+  bool _load = false;
   _submitForm() async {
     if (!_formkey.currentState.validate()) {
       return;
     } else {
       _formkey.currentState.save();
+      setState(() {
+        _load = true;
+      });
       _model = await _controller.registrationUser(
         fullName: _name,
         email: _email,
         phone: _phone,
         password: _password,
       );
-      print(_model.user.email);
+      setState(() {
+        _load = false;
+      });
+      if (_model == null) {
+        final snackBar =
+            SnackBar(content: Text('Erorr try another email or phone number'));
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      }
+      if (_model.errNum == '201') {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Congrats()));
+      }
     }
   }
 
@@ -238,8 +254,8 @@ class _RegistrationUserViewState extends State<RegistrationUserView> {
           SizedBox(height: 20),
           Center(
               child: SizedBox(
-            width: 120,
-            height: 50,
+            width: 100,
+            height: 40,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
@@ -250,22 +266,22 @@ class _RegistrationUserViewState extends State<RegistrationUserView> {
               ),
               onPressed: () {
                 _submitForm();
-                if (_controller.getStatus() == 200) {
-                  final snackBar = SnackBar(content: Text('congraulation'));
-                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                } else {
-                  final snackBar = SnackBar(
-                      content: Text('Erorr try another email or phone number'));
-                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                }
               },
-              child: Text(
-                'Sign Up',
-                style: TextStyle(
-                    fontSize: 21,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600),
-              ),
+              child: _load
+                  ? SizedBox(
+                      height: 25,
+                      width: 25,
+                      child: CircularProgressIndicator(
+                        backgroundColor: Colors.white,
+                      ),
+                    )
+                  : Text(
+                      'Sign Up',
+                      style: TextStyle(
+                          fontSize: 19,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500),
+                    ),
             ),
           )),
           Padding(
