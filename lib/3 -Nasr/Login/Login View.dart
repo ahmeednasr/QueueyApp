@@ -199,7 +199,7 @@ class _LoginViewState extends State<LoginView> {
                 'QueueY',
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,
-                  fontStyle: FontStyle.italic,
+                  // fontStyle: FontStyle.italic,
                   fontSize: 48,
                 ),
               ),
