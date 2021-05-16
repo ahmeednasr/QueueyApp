@@ -162,6 +162,7 @@ class _LoginViewState extends State<LoginView> {
       setState(() {
         _load = false;
       });
+
       if (_model.errNum == "201") {
         Navigator.of(context).pushReplacement(_createRoute());
       }

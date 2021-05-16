@@ -40,9 +40,11 @@ class _SettingState extends State<Setting> {
   _logOut() async {
     SharedPreferences _prefs = await SharedPreferences.getInstance();
     _prefs.clear();
-
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => SplashScreen()));
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => SplashScreen()),
+        (Route<dynamic> route) => false);
+    /*  Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => SplashScreen()));*/
   }
 
   bool isSwitched = false;
@@ -144,7 +146,6 @@ class _SettingState extends State<Setting> {
                       onChanged: (value) {
                         setState(() {
                           isSwitched = value;
-                          print(isSwitched);
                         });
                       },
                       activeColor:

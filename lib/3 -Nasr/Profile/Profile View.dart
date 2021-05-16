@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:queuey/3%20-Nasr/Profile/Profile%20Controller.dart';
+import 'package:queuey/3%20-Nasr/Profile/Profile%20Model.dart';
 
 import '../31-settings.dart';
 
@@ -163,11 +165,24 @@ class _ProfileViewState extends State<ProfileView> {
   final _picker = ImagePicker();
 
   Future getImage({ImageSource source}) async {
-    final pickedFile = await _picker.getImage(source: source);
+    final pickedFile = await _picker.getImage(
+        source: source, maxWidth: 200.0, maxHeight: 200.0);
 
     setState(() {
       _imageFile = pickedFile;
     });
+  }
+
+  ProfileModel _model = new ProfileModel();
+  ProfileController _controller = new ProfileController();
+  _getdata() async {
+    _model = await _controller.getUserData();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getdata();
   }
 
   @override
@@ -225,16 +240,6 @@ class _ProfileViewState extends State<ProfileView> {
                           ? AssetImage('assets/images/MyAppBar/profile.png')
                           : FileImage(File(_imageFile.path)),
                     ),
-                    /*  Container(
-                      height: 120,
-                      width: 120,
-                      color: Colors.green,
-                      child: Image(
-                        image: _imageFile == null
-                            ? AssetImage('assets/images/MyAppBar/profile.png')
-                            : FileImage(File(_imageFile.path)),
-                      ),
-                    ),*/
                     Align(
                       alignment: Alignment.bottomRight,
                       child: Container(
@@ -287,7 +292,7 @@ class _ProfileViewState extends State<ProfileView> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Name',
+                                  "${_model.user[1]}",
                                   style: TextStyle(fontSize: 19),
                                 ),
                                 Icon(
@@ -305,11 +310,11 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
                 _card(
                   icon: CupertinoIcons.phone_fill,
-                  name: 'Phone',
+                  name: "${_model.user[2]}",
                 ),
                 _card(
                   icon: CupertinoIcons.mail,
-                  name: 'Mail',
+                  name: "${_model.user[3]}",
                 ),
                 InkWell(
                   onTap: () {},
