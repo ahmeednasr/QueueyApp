@@ -36,6 +36,7 @@ class User {
   Null busPhone;
   Null busEmail;
   Null busWebsite;
+  Null avatar;
   String updatedAt;
   String createdAt;
   int id;
@@ -51,6 +52,7 @@ class User {
       this.busPhone,
       this.busEmail,
       this.busWebsite,
+      this.avatar,
       this.updatedAt,
       this.createdAt,
       this.id});
@@ -66,6 +68,7 @@ class User {
     busPhone = json['busPhone'];
     busEmail = json['busEmail'];
     busWebsite = json['busWebsite'];
+    avatar = json['avatar'];
     updatedAt = json['updated_at'];
     createdAt = json['created_at'];
     id = json['id'];
@@ -83,6 +86,7 @@ class User {
     data['busPhone'] = this.busPhone;
     data['busEmail'] = this.busEmail;
     data['busWebsite'] = this.busWebsite;
+    data['avatar'] = this.avatar;
     data['updated_at'] = this.updatedAt;
     data['created_at'] = this.createdAt;
     data['id'] = this.id;

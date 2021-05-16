@@ -159,6 +159,7 @@ class _LoginViewState extends State<LoginView> {
       });
 
       _model = await _controller.login(email: _email, password: _password);
+      print(_model.errNum);
       setState(() {
         _load = false;
       });

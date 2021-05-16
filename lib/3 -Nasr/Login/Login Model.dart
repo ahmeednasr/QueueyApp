@@ -2,15 +2,17 @@ class LoginModel {
   bool status;
   String errNum;
   String msg;
-  String token;
+  int userId;
+  String userToken;
 
-  LoginModel({this.status, this.errNum, this.msg, this.token});
+  LoginModel({this.status, this.errNum, this.msg, this.userId, this.userToken});
 
   LoginModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     errNum = json['errNum'];
     msg = json['msg'];
-    token = json['token'];
+    userId = json['user_id'];
+    userToken = json['user_token'];
   }
 
   Map<String, dynamic> toJson() {
@@ -18,7 +20,8 @@ class LoginModel {
     data['status'] = this.status;
     data['errNum'] = this.errNum;
     data['msg'] = this.msg;
-    data['token'] = this.token;
+    data['user_id'] = this.userId;
+    data['user_token'] = this.userToken;
     return data;
   }
 }

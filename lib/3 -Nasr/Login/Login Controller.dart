@@ -12,14 +12,15 @@ class LoginController {
     FormData _formdata =
         FormData.fromMap({'email': email, 'password': password});
     try {
-      var respons = await _dio.post('http://10.0.2.2:8000/api/user/login',
-          data: _formdata);
+      var respons = await _dio
+          .post('https://queue4.herokuapp.com/api/user/login', data: _formdata);
+      print(respons);
       if (respons.statusCode == 200) {
         Map<String, dynamic> resp = json.decode(respons.toString());
         if (resp['errNum'] == '201') {
           _model = LoginModel.fromJson(resp);
           SharedPreferences _prefs = await SharedPreferences.getInstance();
-          _prefs.setString('token', _model.token);
+          _prefs.setString('token', _model.userToken);
           return _model;
         }
         if (resp['errNum'] == '404') {
