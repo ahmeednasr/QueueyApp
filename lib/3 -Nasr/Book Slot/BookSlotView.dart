@@ -215,7 +215,6 @@ class _BookSlotViewState extends State<BookSlotView> {
                         },
                         child: Scrollbar(
                           child: ListView.builder(
-                            // physics: BouncingScrollPhysics(),
                             padding: EdgeInsets.symmetric(horizontal: 20),
                             itemCount: _meeting.length,
                             itemBuilder: (context, index) {

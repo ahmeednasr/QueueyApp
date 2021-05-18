@@ -4,23 +4,15 @@ import 'BookSlotModel.dart';
 
 class BookSlotController {
   BookSlotModel _model = new BookSlotModel();
-  // Appointment _appointment = new Appointment();
   Dio _dio = new Dio();
   List _list = [];
   Future getSlot() async {
     try {
       var _respons = await _dio.put('http://10.0.2.2:8000/api/service/getDate');
-      //print(_respons);
       if (_respons.statusCode == 200) {
         Map<String, dynamic> resp = json.decode(_respons.toString());
         _model = BookSlotModel.fromJson(resp);
-
-        // print(_model.status);
-        // print(_model.msg);
-        // print(_list);
-
         for (int i = 0; i < _model.appointment.length; i++) {
-          // print(_model.appointment[i].time);
           _list.add({
             "id": _model.appointment[i].id,
             "time": _model.appointment[i].time,
@@ -32,11 +24,8 @@ class BookSlotController {
         }
         _list.sort((a, b) => (int.parse(a["lab"]["date"]))
             .compareTo(int.parse(b["lab"]["date"])));
-
-        //   print(_list);
         return _list;
       } else {}
-      // return _list;
     } catch (e) {}
   }
 
