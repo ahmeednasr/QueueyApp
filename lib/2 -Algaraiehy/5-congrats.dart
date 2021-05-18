@@ -14,6 +14,7 @@ class _CongratsState extends State<Congrats> {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => LoginView()));
     });
+
     super.initState();
   }
 

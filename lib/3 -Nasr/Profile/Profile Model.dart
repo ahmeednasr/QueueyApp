@@ -2,7 +2,7 @@ class ProfileModel {
   bool status;
   String errNum;
   String msg;
-  List<String> user;
+  List user;
 
   ProfileModel({this.status, this.errNum, this.msg, this.user});
 

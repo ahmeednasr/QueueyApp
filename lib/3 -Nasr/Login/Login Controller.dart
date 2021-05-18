@@ -12,9 +12,9 @@ class LoginController {
     FormData _formdata =
         FormData.fromMap({'email': email, 'password': password});
     try {
-      var respons = await _dio
-          .post('https://queue4.herokuapp.com/api/user/login', data: _formdata);
-      print(respons);
+      var respons = await _dio.post('http://10.0.2.2:8000/api/user/login',
+          data: _formdata);
+
       if (respons.statusCode == 200) {
         Map<String, dynamic> resp = json.decode(respons.toString());
         if (resp['errNum'] == '201') {

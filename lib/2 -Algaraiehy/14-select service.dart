@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:queuey/2%20-Algaraiehy/25-Student%20Affairs/Student%20Affairs%20View.dart';
 import 'package:queuey/3%20-Nasr/19-select%20department.dart';
 import 'package:queuey/2 -Algaraiehy/25-Student Affairs/Student Affairs View.dart';
+import 'package:queuey/3%20-Nasr/Book%20Slot/BookSlotView.dart';
 
 class SelectService extends StatelessWidget {
   _card({String image, String name}) {
@@ -126,7 +127,12 @@ class SelectService extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BookSlotView()));
+                          },
                           child: _card(
                             image:
                                 'assets/images/Screens/14-select service/1-Labs.png',

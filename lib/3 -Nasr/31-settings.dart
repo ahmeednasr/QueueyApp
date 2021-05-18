@@ -1,8 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:queuey/3%20-Nasr/Profile/Profile%20View.dart';
 import 'package:queuey/SplashScreen.dart';
-
+import 'package:queuey/3%20-Nasr/Profile/Profile%20View.dart' as profileView;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Setting extends StatefulWidget {
@@ -102,13 +104,31 @@ class _SettingState extends State<Setting> {
             SizedBox(
               height: 20,
             ),
-            _card(
-                image: 'assets/images/MyAppBar/profile.png',
-                title: 'Profile',
-                ontap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ProfileView()));
-                }),
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfileView()));
+              },
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: CircleAvatar(
+                        radius: 12.0,
+                        backgroundImage: profileView.imageFunction() == null
+                            ? AssetImage('assets/images/MyAppBar/profile.png')
+                            : FileImage(
+                                File(profileView.imageFunction().path))),
+                  ),
+                  Text(
+                    'Profile',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  )
+                ],
+              ),
+            ),
             _card(
                 image: 'assets/images/Screens/31-Settings/code.png',
                 title: 'Scan QR code',

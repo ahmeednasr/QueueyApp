@@ -91,8 +91,7 @@ class _StudentAffairsViewState extends State<StudentAffairsView> {
           }, //onsave
           // secure: false,
           validator: (value) {
-            if (value.toString().isEmpty ||
-                        value.toString().length < 2) {
+            if (value.toString().isEmpty || value.toString().length < 2) {
               return "name is required and more than 2 characters";
             }
             return null;
@@ -126,8 +125,7 @@ class _StudentAffairsViewState extends State<StudentAffairsView> {
           },
           // secure: false,
           validator: (value) {
-            if (value.toString().isEmpty ||
-                        value.toString().length < 2) {
+            if (value.toString().isEmpty || value.toString().length < 2) {
               return "ID Number is required and more than 2 characters";
             }
             return null;
@@ -161,8 +159,7 @@ class _StudentAffairsViewState extends State<StudentAffairsView> {
           },
           // secure: false,
           validator: (value) {
-            if (value.toString().isEmpty ||
-                        value.toString().length < 10) {
+            if (value.toString().isEmpty || value.toString().length < 10) {
               return 'email is required and more than 10 characters';
             } else {
               return null;

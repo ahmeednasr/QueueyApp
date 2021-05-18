@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:queuey/Custom_Widget/MyAppBar.dart';
 import 'package:queuey/Custom_Widget/NavigationBar.dart';
 
 class BookQNow extends StatefulWidget {
@@ -40,8 +39,10 @@ class _BookQNowState extends State<BookQNow> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MyAppBar(
-        context: context,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        toolbarHeight: 120,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 10),

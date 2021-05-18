@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 
 import 'package:queuey/SplashScreen.dart';
 
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(

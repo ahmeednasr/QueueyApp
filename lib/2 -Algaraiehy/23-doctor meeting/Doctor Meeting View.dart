@@ -18,13 +18,8 @@ class _DoctorMeetingViewState extends State<DoctorMeetingView> {
   DateTime selectedDate = DateTime.now();
   TextEditingController _textEditingController = TextEditingController();
   DateTime date;
-  String _name,
-      _id,
-      _meetingTopic,
-      _bookingDay,
-      _slotTime,
-      slotsChosse;
-      // dropdownValue;
+  String _name, _id, _meetingTopic, _bookingDay, _slotTime, slotsChosse;
+  // dropdownValue;
   // _chosenValue
 
   // List listItems = ['09:00 - 09:30', '09:30 - 10:00', '01:00 - 01:30'];
@@ -54,8 +49,6 @@ class _DoctorMeetingViewState extends State<DoctorMeetingView> {
       });
     }
   }
-
-
 
   Widget _textField({
     // DropdownButtonFormField dropDown,

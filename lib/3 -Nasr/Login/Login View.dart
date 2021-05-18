@@ -11,7 +11,7 @@ class LoginView extends StatefulWidget {
 }
 
 bool _issecured = true;
-GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+GlobalKey<FormState> _formkeyL = GlobalKey<FormState>();
 String _email, _password;
 Route _createRoute() {
   return PageRouteBuilder(
@@ -150,16 +150,16 @@ class _LoginViewState extends State<LoginView> {
 
   bool _load = false;
   _submitForm() async {
-    if (!_formkey.currentState.validate()) {
+    if (!_formkeyL.currentState.validate()) {
       return;
     } else {
-      _formkey.currentState.save();
+      _formkeyL.currentState.save();
       setState(() {
         _load = true;
       });
 
       _model = await _controller.login(email: _email, password: _password);
-      print(_model.errNum);
+      print(_model);
       setState(() {
         _load = false;
       });
@@ -210,14 +210,16 @@ class _LoginViewState extends State<LoginView> {
             height: 30,
           ),
           Form(
-            key: _formkey,
+            key: _formkeyL,
             child: Column(
               children: [
                 _textField(
                     validator: (value) {
                       if (value.toString().isEmpty ||
                           value.toString().length < 10) {
-                        return "email is required";
+                        return "email required";
+                      } else if (!value.contains('@')) {
+                        return 'e-mail is invalid';
                       } else {
                         return null;
                       }
@@ -238,9 +240,10 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 _textField(
                     validator: (value) {
-                      if (value.toString().isEmpty ||
-                          value.toString().length < 10) {
-                        return "password is required and more than 10 characters";
+                      if (value.toString().isEmpty) {
+                        return "password required";
+                      } else if (value.toString().length < 8) {
+                        return 'password invalid';
                       } else {
                         return null;
                       }

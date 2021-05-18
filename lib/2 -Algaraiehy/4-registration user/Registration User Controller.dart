@@ -22,8 +22,7 @@ class RegistrationUserController {
     });
 
     try {
-      var respons = await _dio.post(
-          'https://queue4.herokuapp.com/api/user/register',
+      var respons = await _dio.post('http://10.0.2.2:8000/api/user/register',
           data: _formData);
       print(respons.data);
 

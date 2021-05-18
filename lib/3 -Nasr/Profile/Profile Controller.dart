@@ -13,7 +13,7 @@ class ProfileController {
       _dio.options.headers["Authorization"] =
           "Bearer ${_prefs.getString('token')}";
       var respons = await _dio.get('http://10.0.2.2:8000/api/user/profile');
-      print(respons);
+
       if (respons.statusCode == 200) {
         Map<String, dynamic> resp = json.decode(respons.toString());
         _profileModel = ProfileModel.fromJson(resp);

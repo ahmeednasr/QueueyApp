@@ -49,7 +49,7 @@ class _ProfileViewState extends State<ProfileView> {
           Icon(
             icon,
             color: Theme.of(context).primaryColor,
-            size: 30,
+            size: 27,
           ),
           SizedBox(
             width: 5,
@@ -58,16 +58,21 @@ class _ProfileViewState extends State<ProfileView> {
             child: Container(
               decoration: BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(width: 0.5, color: Colors.black54),
+                  bottom: BorderSide(width: 0.2, color: Colors.black54),
                 ),
                 color: Colors.white,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    '$name',
-                    style: TextStyle(fontSize: 19),
+                  Flexible(
+                    child: Text(
+                      '$name',
+                      style: TextStyle(fontSize: 19),
+                      maxLines: 1,
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ],
               ),
@@ -175,14 +180,18 @@ class _ProfileViewState extends State<ProfileView> {
 
   ProfileModel _model = new ProfileModel();
   ProfileController _controller = new ProfileController();
-  _getdata() async {
+  bool _load = true;
+  getdata() async {
     _model = await _controller.getUserData();
+    setState(() {
+      _load = false;
+    });
   }
 
   @override
   void initState() {
     super.initState();
-    _getdata();
+    getdata();
   }
 
   @override
@@ -223,124 +232,159 @@ class _ProfileViewState extends State<ProfileView> {
         elevation: 0,
       ),
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 40),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Center(
-              child: Container(
-                width: 125,
-                height: 125,
-                child: Stack(
-                  children: [
-                    CircleAvatar(
-                      radius: 80.0,
-                      backgroundImage: _imageFile == null
-                          ? AssetImage('assets/images/MyAppBar/profile.png')
-                          : FileImage(File(_imageFile.path)),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Theme.of(context).primaryColor),
-                          child: IconButton(
-                              icon: Icon(
-                                Icons.camera_alt,
-                                color: Colors.white,
-                                size: 25,
+      body: _load
+          ? Center(child: CircularProgressIndicator())
+          : Padding(
+              padding: EdgeInsets.symmetric(horizontal: 40),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Center(
+                    child: Container(
+                      width: 125,
+                      height: 125,
+                      child: Stack(
+                        children: [
+                          /* CircleAvatar(
+                            radius: 80.0,
+                            backgroundImage: _imageFile == null
+                                ? AssetImage(
+                                    'assets/images/MyAppBar/profile.png')
+                                : FileImage(File(_imageFile.path)),
+                          ),*/
+                          /* Center(
+                            child: Container(
+                              height: 160,
+                              width: 160,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color(0xFFe0f2f1)),
+                              child: Image.network(
+                                _model.user[0],
                               ),
-                              onPressed: () {
-                                _modalBottomSheetMenu();
-                              })),
+                            ),
+                          ),*/
+                          CircleAvatar(
+                            radius: 80.0,
+                            backgroundColor: Colors.white,
+                            backgroundImage: AssetImage(
+                                'assets/images/MyAppBar/profile.png'),
+                            child: CircleAvatar(
+                              radius: 80.0,
+                              backgroundColor: Colors.white,
+                              backgroundImage: _imageFile == null
+                                  ? AssetImage(
+                                      'assets/images/MyAppBar/profile.png')
+                                  : FileImage(File(_imageFile.path)),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Theme.of(context).primaryColor),
+                                child: IconButton(
+                                    icon: Icon(
+                                      Icons.camera_alt,
+                                      color: Colors.white,
+                                      size: 25,
+                                    ),
+                                    onPressed: () {
+                                      _modalBottomSheetMenu();
+                                    })),
+                          ),
+                        ],
+                      ),
                     ),
-                  ],
-                ),
-              ),
-            ),
-            Column(
-              children: [
-                Container(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
+                  ),
+                  Column(
                     children: [
-                      Icon(
-                        Icons.person,
-                        color: Theme.of(context).primaryColor,
-                        size: 30,
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom:
-                                  BorderSide(width: 0.5, color: Colors.black54),
+                      Container(
+                        height: 50,
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.person,
+                              color: Theme.of(context).primaryColor,
+                              size: 30,
                             ),
-                            color: Colors.white,
-                          ),
-                          child: InkWell(
-                            onTap: () {},
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "${_model.user[1]}",
-                                  style: TextStyle(fontSize: 19),
-                                ),
-                                Icon(
-                                  Icons.create_outlined,
-                                  color: Colors.grey[700],
-                                  size: 22,
-                                ),
-                              ],
+                            SizedBox(
+                              width: 5,
                             ),
-                          ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                        width: 0.5, color: Colors.black54),
+                                  ),
+                                  color: Colors.white,
+                                ),
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Flexible(
+                                        child: Text(
+                                          "${_model.user[1]}",
+                                          style: TextStyle(fontSize: 19),
+                                          maxLines: 1,
+                                          softWrap: true,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                      Icon(
+                                        Icons.create_outlined,
+                                        color: Colors.grey[700],
+                                        size: 22,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
+                      _card(
+                        icon: CupertinoIcons.phone_fill,
+                        name: "${_model.user[2]}",
+                      ),
+                      _card(
+                        icon: CupertinoIcons.mail,
+                        name: "${_model.user[3]}",
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: _card(
+                          icon: CupertinoIcons.lock_fill,
+                          name: 'Change Password',
+                        ),
+                      )
                     ],
                   ),
-                ),
-                _card(
-                  icon: CupertinoIcons.phone_fill,
-                  name: "${_model.user[2]}",
-                ),
-                _card(
-                  icon: CupertinoIcons.mail,
-                  name: "${_model.user[3]}",
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: _card(
-                    icon: CupertinoIcons.lock_fill,
-                    name: 'Change Password',
-                  ),
-                )
-              ],
+                  Column(
+                    children: [
+                      Text('Powered By',
+                          style: TextStyle(
+                              fontSize: 21, fontWeight: FontWeight.bold)),
+                      Text('QueueY',
+                          style: TextStyle(
+                            fontSize: 21,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).primaryColor,
+                          ))
+                    ],
+                  )
+                ],
+              ),
             ),
-            Column(
-              children: [
-                Text('Powered By',
-                    style:
-                        TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
-                Text('QueueY',
-                    style: TextStyle(
-                      fontSize: 21,
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).primaryColor,
-                    ))
-              ],
-            )
-          ],
-        ),
-      ),
     );
   }
 }
