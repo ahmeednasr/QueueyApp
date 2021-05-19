@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:queuey/Custom_Widget/MyAppBar.dart';
 import 'package:intl/intl.dart'; // for DateFormat('yyyy/MM/dd')
 
 class DoctorMeetingView extends StatefulWidget {
@@ -285,9 +284,6 @@ class _DoctorMeetingViewState extends State<DoctorMeetingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        context: context,
-      ),
       body: ListView(
         children: [
           Padding(

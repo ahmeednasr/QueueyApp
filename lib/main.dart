@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'QueueY',
+      title: 'Queue.Y',
       theme: ThemeData(
         primaryColor: Color(0xff329D9C),
         accentColor: Color(0xff40A3A3),

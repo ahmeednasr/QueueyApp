@@ -46,10 +46,10 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Image(image: AssetImage('assets/images/Queue-amico.png')),
             ),
             Text(
-              'QueueY',
+              'Queue.Y',
               style: TextStyle(
                 color: Colors.white,
-                fontStyle: FontStyle.italic,
+                // fontStyle: FontStyle.italic,
                 fontSize: 48,
               ),
             ),
@@ -62,6 +62,12 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: Colors.white,
                 fontSize: 20,
               ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            CircularProgressIndicator(
+              backgroundColor: Colors.white,
             )
           ],
         ),

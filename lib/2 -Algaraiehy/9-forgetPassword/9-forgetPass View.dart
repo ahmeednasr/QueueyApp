@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:queuey/2%20-Algaraiehy/10-verification/10-verification%20View.dart';
 
 class ForgetPassword extends StatefulWidget {
   @override
@@ -51,6 +52,8 @@ class _ForgetPasswordState extends State<ForgetPassword> {
       return;
     } else {
       _formKey.currentState.save();
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => VerificationView()));
     }
   }
 
